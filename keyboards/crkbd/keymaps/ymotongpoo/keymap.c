@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_EUCALYN] = LAYOUT_split_3x6_3(
   //+--------+--------+--------+--------+--------+--------+                    +--------+--------+--------+--------+--------+--------+
-       KC_TAB,    KC_Q,    KC_W, KC_COMM,  KC_DOT, KC_SCLN,                         KC_M,    KC_R,    KC_D,    KC_Y,    KC_P, KC_BSPC, \
+       KC_TAB,    KC_Q,    KC_W, KC_COMM,  KC_DOT, KC_SCLN,                         KC_M,    KC_R,    KC_D,    KC_Y,    KC_P, KC_DEL,  \
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL,    KC_A,    KC_O,    KC_E,    KC_I,    KC_U,                         KC_G,    KC_T,    KC_K,    KC_S,    KC_N, KC_QUOT, \
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
