@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_EUCALYN] = LAYOUT_split_3x6_3(
   //+--------+--------+--------+--------+--------+--------+                    +--------+--------+--------+--------+--------+--------+
-       KC_TAB,    KC_Q,    KC_W, KC_COMM,  KC_DOT, KC_SCLN,                         KC_M,    KC_R,    KC_D,    KC_Y,    KC_P, KC_DEL,  \
+       KC_TAB,    KC_Q,    KC_W, KC_COMM,  KC_DOT, KC_SCLN,                         KC_M,    KC_R,    KC_D,    KC_Y,    KC_P, KC_BSPC, \
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL,    KC_A,    KC_O,    KC_E,    KC_I,    KC_U,                         KC_G,    KC_T,    KC_K,    KC_S,    KC_N, KC_QUOT, \
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
@@ -87,7 +87,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_RAISE] = LAYOUT_split_3x6_3( \
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_ESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_BSPC,\
+       KC_ESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,                      KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_DEL, \
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
         KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,                      KC_GRV,  KC_MINS,  KC_EQL, KC_LBRC, KC_RBRC, KC_PIPE,\
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
