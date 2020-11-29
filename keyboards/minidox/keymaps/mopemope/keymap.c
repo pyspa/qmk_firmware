@@ -204,7 +204,9 @@ extern keymap_config_t keymap_config;
 #define C_LT   LCTL(JP_LT)
 #define C_GT   LCTL(JP_GT)
 #define G_V    LT(GAME3,KC_V)
+#define G_C    LT(GAME3,KC_C)
 #define GCTL   KC_LCTL
+#define GALT   KC_LALT
 
 enum double_taps {
   G_TAB = 0,
@@ -458,22 +460,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------.           ,----------------------------------.
  * |  ESC |  Q   |  W   |  E   |  R   |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * | SHIFT|  A   |  S   |  D   |  G   |           |      |      |      |      |      |
+ * | SHIFT|  A   |  S   |  D   |  F   |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  ALT |  Z   |  CTL |  F   |      |           |      |      |      |      |      |
+ * |  CTL |  Z   |  ALT |      |      |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
- *                  |  C   |  V   |      |    |      |      |      |
+ *                  |  V   |  C   |      |    |      |      |      |
  *                  `-------------| SPC  |    |      |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
  */
 [GAME2] =  LAYOUT( \
   GTAB,    KC_Q,  KC_W,  KC_E,   KC_R,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
-  KC_LSFT, KC_A,  KC_S,  KC_D,   KC_G,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
-  KC_LALT, KC_Z,  GCTL,  KC_F,   XXXXX,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
-                  KC_C,  G_V,    KC_SPC,       DQG,     DQG,     DQG                \
-),
+  KC_LSFT, KC_A,  KC_S,  KC_D,   KC_F,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  GCTL,    KC_Z,  GALT,  XXXXX,  XXXXX,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+                  KC_V,  G_C,    KC_SPC,       DQG,     DQG,     DQG                \
+)
 
 /* GAME3(R6S)
  *
