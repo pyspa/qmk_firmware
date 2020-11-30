@@ -480,7 +480,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* GAME3(R6S)
  *
  * ,----------------------------------.           ,----------------------------------.
- * |      |  F5  |  F6  |      |  Y   |           |      |      |      |      |      |
+ * |      |  F5  |  F6  |  F7  |  Y   |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |   5  |   6  |   7  |  F   |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
@@ -493,7 +493,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [GAME3] =  LAYOUT( \
-  GTAB,    KC_F5, KC_F6, XXXXX,  KC_Y,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  GTAB,    KC_F5, KC_F6, KC_F7,  KC_Y,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
   XXXXX,   KC_5,  KC_6,  KC_7,   KC_F,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
   XXXXX,   XXXXX, XXXXX, KC_U,   XXXXX,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
                   _____, _____,  _____,        DQG,    DQG,      DQG                     \
