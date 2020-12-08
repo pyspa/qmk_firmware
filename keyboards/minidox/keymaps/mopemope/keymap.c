@@ -421,7 +421,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |      |      |      |      |      |           |      |  -   |   ,  |   .  |   /  |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
- *                  | RHUD | RHUI |      |    |      |      |      |
+ *                  | RSAD | RSAI |      |    |      |      |      |
  *                  `-------------| RTOG |    |      |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
@@ -430,7 +430,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   GVAL,   GR6S,  _____,  _____,  _____,        DQT,    EXLM,    PLUS,   ASTR,   PIPE,  \
   _____,  _____, _____,  _____,  _____,        TILD,   EQL,     COLN,   SCLN,   AT,    \
   _____,  _____, _____,  _____,  _____,        _____,  MINS,    COMM,   DOT,    SLSH,  \
-                 RHUD,   RHUI,   RTOG,         _____,  _____,   _____                  \
+                 RSAD,   RSAI,   RTOG,         _____,  _____,   _____                  \
 ),
 
 /* GAME1(VAROLANT)
