@@ -462,7 +462,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------|           |------+------+------+------+------|
  * | SHIFT|  A   |  S   |  D   |  F   |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  CTL |  Z   |  ALT |      |      |           |      |      |      |      |      |
+ * |  ALT |  Z   |  CTL |  6   |  5   |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |  V   |  C   |      |    |      |      |      |
@@ -473,7 +473,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [GAME2] =  LAYOUT( \
   GTAB,    KC_Q,  KC_W,  KC_E,   KC_R,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
   KC_LSFT, KC_A,  KC_S,  KC_D,   KC_F,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
-  GCTL,    KC_Z,  GALT,  XXXXX,  XXXXX,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  GALT,    KC_Z,  GCTL,  KC_6,   KC_5,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
                   KC_V,  G_C,    KC_SPC,       DQG,     DQG,     DQG                     \
 ),
 
