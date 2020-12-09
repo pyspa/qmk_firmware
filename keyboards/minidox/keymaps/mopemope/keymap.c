@@ -168,6 +168,7 @@ extern keymap_config_t keymap_config;
 #define MSCLN  LALT(JP_SCLN)
 #define APERC  LALT(JP_PERC)
 #define CPIPE  LCTL(JP_PIPE)
+#define CEXLM  LCTL(JP_EXLM)
 
 #define WH_D   KC_WH_D
 #define WH_U   KC_WH_U
@@ -350,7 +351,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------.           ,----------------------------------.
  * |  C-Q |  C-G | C-M-M|  C-L |  M-% |           |      | CXCF | CXU  | CXCB |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  M-D | CXCS |  C-T | C-M-N|  M-X |           |      |      | C-Q  | CXO  |  C-@ |
+ * |  M-D | CXCS |  C-T | C-M-N|  M-X |           |      |      | C-!  | CXO  |  C-@ |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |  C-Z |  C-X |  C-C |      |      |           |      |      | C-K  |      |      |
  * `----------------------------------'           `----------------------------------'
@@ -362,7 +363,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [COMBA] =  LAYOUT( \
    CQ,     CG,    CMM,    CL,      APERC,         _____,  CXCF,   CXU,   CXCB,   _____,  \
-   MD,     CXCS,  CT,     CMN,     MX,            _____,  _____,  CQ,    CXO,    CAT,    \
+   MD,     CXCS,  CT,     CMN,     MX,            _____,  _____,  CEXLM, CXO,    CAT,    \
    CZ,     CX,    CC,     _____,   _____,         _____,  _____,  CK,    _____,  _____,  \
                   _____,  _____,   ZHTG,          _____,  _____,  _____                  \
 ),
