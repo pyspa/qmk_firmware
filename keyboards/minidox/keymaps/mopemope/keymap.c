@@ -230,7 +230,8 @@ enum custom_keycodes {
   CXO,
   CXU,
   CCN,
-  CCP
+  CCP,
+  CZCZ,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -351,7 +352,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------.           ,----------------------------------.
  * |  C-Q |  C-G | C-M-M|  C-L |  M-% |           |      | CXCF | CXU  | CXCB |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  M-D | CXCS |  C-T | C-M-N|  M-X |           |      |      | C-!  | CXO  |  C-@ |
+ * |  M-D | CXCS |  C-T | C-M-N|  M-X |           |      |      | C-Z  | CXO  |  C-@ |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |  C-Z |  C-X |  C-C |      |      |           |      |      | C-K  |      |      |
  * `----------------------------------'           `----------------------------------'
@@ -363,7 +364,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [COMBA] =  LAYOUT( \
    CQ,     CG,    CMM,    CL,      APERC,         _____,  CXCF,   CXU,   CXCB,   _____,  \
-   MD,     CXCS,  CT,     CMN,     MX,            _____,  _____,  CEXLM, CXO,    CAT,    \
+   MD,     CXCS,  CT,     CMN,     MX,            _____,  _____,  CZCZ,  CXO,    CAT,    \
    CZ,     CX,    CC,     _____,   _____,         _____,  _____,  CK,    _____,  _____,  \
                   _____,  _____,   ZHTG,          _____,  _____,  _____                  \
 ),
@@ -544,6 +545,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LCTRL("c") "p");
     }
     return false;
+  case CZCZ:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTRL("z"));
+      SEND_STRING(SS_LCTRL("z"));
+    }
+    break;
   }
   return true;
 }
