@@ -17,8 +17,8 @@ extern keymap_config_t keymap_config;
 #define GAME3  11
 #define GAME4  12
 #define GAME5  13
-#define GAME6  14
-#define GAME7  15
+/* #define GAME6  14 */
+/* #define GAME7  15 */
 
 #define _____ KC_TRNS
 #define XXXXX KC_NO
@@ -136,10 +136,10 @@ extern keymap_config_t keymap_config;
 #define DQG    DF(QGMLWY)
 #define GVAL   DF(GAME1)
 #define GR6S   DF(GAME2)
-#define DG4    DF(GAME4)
+#define GCP    DF(GAME4)
 #define DG5    DF(GAME5)
-#define DG6    DF(GAME6)
-#define DG7    DF(GAME7)
+/* #define DG6    DF(GAME6) */
+/* #define DG7    DF(GAME7) */
 #define SELA   LCTL(KC_A)
 #define COPY   LCTL(KC_C)
 #define PASTE  LCTL(KC_V)
@@ -416,7 +416,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* COMBT
  *
  * ,----------------------------------.           ,----------------------------------.
- * |  DG1 |  DG2 |      |      |      |           |   "  |  !   |   +  |   *  |   |  |
+ * |  DG1 |  DG2 |  DG3 |      |      |           |   "  |  !   |   +  |   *  |   |  |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |      |      |      |      |           |   ~  |  =   |   :  |   ;  |   @  |
  * |------+------+------+------+------|           |------+------+------+------+------|
@@ -429,7 +429,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [COMBT] =  LAYOUT( \
-  GVAL,   GR6S,  _____,  _____,  _____,        DQT,    EXLM,    PLUS,   ASTR,   PIPE,  \
+  GVAL,   GR6S,  GCP,    _____,  _____,        DQT,    EXLM,    PLUS,   ASTR,   PIPE,  \
   _____,  _____, _____,  _____,  _____,        TILD,   EQL,     COLN,   SCLN,   AT,    \
   _____,  _____, _____,  _____,  _____,        _____,  MINS,    COMM,   DOT,    SLSH,  \
                  RSAD,   RSAI,   RTOG,         _____,  _____,   _____                  \
@@ -499,6 +499,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   XXXXX,   KC_5,  KC_6,  KC_7,   KC_F,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
   XXXXX,   XXXXX, XXXXX, KC_U,   XXXXX,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
                   _____, _____,  _____,        DQG,    DQG,      DQG                     \
+),
+
+/* GAME4(Cyberpunk2077)
+ *
+ * ,----------------------------------.           ,----------------------------------.
+ * |  ESC |  Q   |  W   |  E   |  R   |           |      |      |      |      |      |
+ * |------+------+------+------+------|           |------+------+------+------+------|
+ * |LSHIFT|  A   |  S   |  D   |  F   |           |      |      |      |      |      |
+ * |------+------+------+------+------|           |------+------+------+------+------|
+ * |  C   |  X   |      |      |  T   |           |      |      |      |      |      |
+ * `----------------------------------'           `----------------------------------'
+ *                  ,--------------------.    ,------,-------------.
+ *                  |  Z  |   V   |      |    |      |      |      |
+ *                  `-------------| SPC  |    |      |------+------.
+ *                                |      |    |      |
+ *                                `------'    `------'
+ */
+[GAME4] =  LAYOUT( \
+  GTAB,    KC_Q,  KC_W,  KC_E,   KC_R,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  KC_LSFT, KC_A,  KC_S,  KC_D,   KC_F,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  KC_C,    KC_X,  GALT,  XXXXX,  KC_T,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+                  KC_Z,  KC_V,   KC_SPC,       DQG,     DQG,     DQG                     \
 ),
 
 };
