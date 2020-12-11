@@ -205,7 +205,7 @@ extern keymap_config_t keymap_config;
 #define C_LT   LCTL(JP_LT)
 #define C_GT   LCTL(JP_GT)
 #define G3_C   LT(GAME3,KC_C)
-#define G5_V   LT(GAME5,KC_V)
+#define G5_C   LT(GAME5,KC_C)
 #define GCTL   KC_LCTL
 #define GALT   KC_LALT
 
@@ -511,7 +511,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |  C   |  X   | ALT  |  V   |  T   |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
- *                  |  Z  |  V    |      |    |      |      |      |
+ *                  |  Z  |  C    |      |    |      |      |      |
  *                  `-------------| SPC  |    |      |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
@@ -520,16 +520,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   GTAB,    KC_Q,  KC_W,  KC_E,   KC_R,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
   KC_LSFT, KC_A,  KC_S,  KC_D,   KC_F,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
   KC_C,    KC_X,  GALT,  KC_V,   KC_T,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
-                  KC_Z,  G5_V,   KC_SPC,       DQG,     DQG,     DQG                     \
+                  KC_Z,  G5_C,   KC_SPC,       DQG,     DQG,     DQG                     \
 ),
 /* GAME5(Cyberpunk2077)
  *
  * ,----------------------------------.           ,----------------------------------.
- * |      |      |      |      |      |           |      |      |      |      |      |
+ * |      |  M   |  J   |  K   |      |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |  I   |  O   |  P   |      |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |      |      |      |      |           |      |      |      |      |      |
+ * |  N   |      |      |      |      |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |     |       |      |    |      |      |      |
@@ -538,9 +538,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [GAME5] =  LAYOUT( \
-  _____,  _____,  _____,  _____,  _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  _____,  KC_M,   KC_J,   KC_K,   _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
   _____,  KC_I,   KC_O,   KC_P,   _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
-  _____,  _____,  _____,  _____,  _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  KC_N,   _____,  _____,  _____,  _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
                   _____,  _____,  _____,        DQG,     DQG,     DQG                     \
 ),
 
