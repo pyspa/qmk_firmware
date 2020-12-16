@@ -19,6 +19,10 @@ extern keymap_config_t keymap_config;
 #define GAME5  13
 #define GAME6  14
 #define GAME7  15
+#define GAME8  16
+#define GAME9  17
+#define GAME10 18
+#define GAME11 19
 
 #define _____ KC_TRNS
 #define XXXXX KC_NO
@@ -141,6 +145,8 @@ extern keymap_config_t keymap_config;
 #define DG5    DF(GAME5)
 #define DG6    DF(GAME6)
 #define DG7    DF(GAME7)
+#define GR6S   DF(GAME8)
+#define GCP    DF(GAME10)
 #define SELA   LCTL(KC_A)
 #define COPY   LCTL(KC_C)
 #define PASTE  LCTL(KC_V)
@@ -199,6 +205,8 @@ extern keymap_config_t keymap_config;
 #define RVAI   RGB_VAI
 #define RVAD   RGB_VAD
 #define CTL    OSM(MOD_RCTL)
+#define G9_C   LT(GAME9,KC_C)
+#define G11_C  LT(GAME11,KC_C)
 
 // COMB
 // C-V
@@ -229,7 +237,8 @@ enum custom_keycodes {
   CXO,
   CXU,
   CCN,
-  CCP
+  CCP,
+  CZCZ
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -297,7 +306,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
    * |      | LEFT | DOWN | RIGHT|WRKSP2|      | |      |DWRKSP| LEFT | DOWN | RIGHT|      |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
-   * |      |      | COPY | PASTE| GUI  |      | |      | MLT  | MGT  | PSCR | HIDE |      |
+   * |      |      | COPY | PASTE| GUI  |      | |      |      | M-V  | PSCR | HIDE |      |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
    * |      |      |      |      |      |      | |      |      |      |      |      |      |
    * `-----------------------------------------' `-----------------------------------------'
@@ -306,7 +315,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [MISCL] = LAYOUT( \
     RESET, _____,  KUP,   _____, WRKSP1, XXXXX,  XXXXX,  UWRKSP, PGDN,  GU,    PGUP,  DEL,    \
     _____, KLEFT,  KDOWN, KRIGHT,WRKSP2, XXXXX,  XXXXX,  DWRKSP, GL,    GD,    GR,    _____,  \
-    _____, _____,  COPY,  PASTE, GUI,    XXXXX,  XXXXX,  MLT,    MGT,  SPSCR, GH,    _____, \
+    _____, _____,  COPY,  PASTE, GUI,    XXXXX,  XXXXX,  _____,  M_V,   SPSCR, GH,    _____, \
     XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX,  XXXXX,  XXXXX,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX   \
   ),
 
@@ -333,7 +342,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,-----------------------------------------, ,-----------------------------------------,
    * |  C-Q |  C-G | C-M-M|  C-L | M-%  |      | |      |      | CXCF | CXU  | CXCB |      |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
-   * |  M-D | CXCS |  C-T | C-M-N| M-X  |      | |      |      |      | C-Q  | CXO  |  C-@ |
+   * |  M-D | CXCS |  C-T | C-M-N| M-X  |      | |      |      |      | C-Z  | CXO  |  C-@ |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
    * |  C-Z |  C-X |  C-C |      | ZHTG |      | |      |      |      | C-K  |      |      |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
@@ -343,7 +352,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [COMBR] = LAYOUT( \
     CQ,      CG,     CMM,   CL,    APERC, XXXXX,   XXXXX, _____, CXCF,  CXU,   CXCB,  _____,  \
-    MD,      CXCS,   CT,    CMN,   MX,    XXXXX,   XXXXX, _____, _____, CQ,    CXO,   CAT,    \
+    MD,      CXCS,   CT,    CMN,   MX,    XXXXX,   XXXXX, _____, _____, CZCZ,  CXO,   CAT,    \
     CZ,      CX,     CC,    _____, ZHTG,  XXXXX,   XXXXX, _____, _____, CK,    _____, _____,  \
     XXXXX,   XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX,   XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX   \
   ),
@@ -388,7 +397,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* COMB Left2 (COMBT)
    * ,-----------------------------------------, ,-----------------------------------------,
-   * |  DG1 |  DG2 |  DG3 |  DG4 |  DG5 |      | |      |   "  |  !   |   +  |   *  |   |  |
+   * |      |  R6S |  CP  |      |      |      | |      |   "  |  !   |   +  |   *  |   |  |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
    * |      |      |      |      |      |      | |      |   ~  |  =   |   :  |   ;  |   @  |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
@@ -399,10 +408,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
 
   [COMBT] = LAYOUT( \
-    DG1,    DG2,    DG3,    DG4,   DG5,   XXXXX,  XXXXX, DQT,   EXLM,  PLUS,  ASTR,   PIPE,   \
-    _____,  _____,  _____,  _____, _____, XXXXX,  XXXXX, TILD,  EQL,   COLN,  SCLN,   AT,     \
-    _____,  _____,  _____,  _____, _____, XXXXX,  XXXXX, _____, BSP,   COMM,  DOT,    SLSH,   \
-    XXXXX,  XXXXX,  XXXXX,  XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX   \
+    _____,  GR6S,   GCP,   _____, _____, XXXXX,  XXXXX, DQT,   EXLM,  PLUS,  ASTR,   PIPE,   \
+    _____,  _____,  _____, _____, _____, XXXXX,  XXXXX, TILD,  EQL,   COLN,  SCLN,   AT,     \
+    _____,  _____,  _____, _____, _____, XXXXX,  XXXXX, _____, BSP,   COMM,  DOT,    SLSH,   \
+    XXXXX,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX   \
   ),
 
   /* GAME1(BL2)
@@ -466,9 +475,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * ,-----------------------------------------, ,-----------------------------------------,
    * |  ESC |  Q   |  W   |  E   |  R   |      | |      |      |      |      |      |      |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
-   * |  SFT |  A   |  S   |  D   |  X   |      | |      |      |  DQG |      |      |      |
+   * |  SFT |  A   |  S   |  D   |  F   |      | |      |      |  DQG |      |      |      |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
-   * |  4   |  F   |  B   |  C   | SPC  |      | |      |      |      |      |      |  DQG |
+   * |  4   |  X   |  B   |  C   | SPC  |      | |      |      |      |      |      |  DQG |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
    * |      |      |      |      |      |      | |      |      |      |      |      |      |
    * `-----------------------------------------' `-----------------------------------------'
@@ -476,8 +485,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [GAME4] = LAYOUT( \
      GTAB,   KC_Q,  KC_W,  KC_E,  KC_R,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
-     KC_LSFT,KC_A,  KC_S,  KC_D,  KC_X,  XXXXX,  XXXXX, XXXXX, DQG,   XXXXX, XXXXX, XXXXX,     \
-     KC_4,   FG,    VB,    KC_C,  KC_SPC,XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
+     KC_LSFT,KC_A,  KC_S,  KC_D,  FG,    XXXXX,  XXXXX, XXXXX, DQG,   XXXXX, XXXXX, XXXXX,     \
+     KC_4,   KC_X,  VB,    KC_C,  KC_SPC,XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG, \
      XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
   ),
 
@@ -538,6 +547,79 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXX,   XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
   ),
 
+  /* GAME8(R6S)
+   * ,-----------------------------------------, ,-----------------------------------------,
+   * |  TAB |  Q   |  W   |  E   |  R   |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |  SFT |  A   |  S   |  D   |  F   |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |  ALT |  Z   |  CTL |  SPC |  C   |      | |      |      |      |      |      |  DQG |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |      |      |      |      |      |      | |      |      |      |      |      |      |
+   * `-----------------------------------------' `-----------------------------------------'
+   */
+
+  [GAME8] = LAYOUT( \
+    GTAB,    KC_Q,  KC_W,   KC_E,  KC_R,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_LSFT, KC_A,  KC_S,   KC_D,  KC_F,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_LALT, KC_Z,  KC_LCTL,KC_SPC,G9_C,  XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
+    XXXXX,   XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
+  ),
+  /* GAME9(R6S)
+   * ,-----------------------------------------, ,-----------------------------------------,
+   * |  ESC |  F5  |  F6  |  F7  |  Y   |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |  V   |  5   |  6   |  7   |  F   |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |      |  U   |      |      |      |      | |      |      |      |      |      |  DQG |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |      |      |      |      |      |      | |      |      |      |      |      |      |
+   * `-----------------------------------------' `-----------------------------------------'
+   */
+
+  [GAME9] = LAYOUT( \
+    ESC,    KC_F5, KC_F6, KC_F7, KC_Y,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_V,   KC_5,  KC_6,  KC_7,  KC_F,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    XXXXX,  KC_U,  XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
+    XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
+  ),
+  /* GAME10(Cyberpunk2077)
+   * ,-----------------------------------------, ,-----------------------------------------,
+   * |  TAB |  Q   |  W   |  E   |  R   |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |  SFT |  A   |  S   |  D   |  F   |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |  Z   |  X   |  ALT |  SPC |  C   |      | |      |      |      |      |      |  DQG |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |      |      |      |      |      |      | |      |      |      |      |      |      |
+   * `-----------------------------------------' `-----------------------------------------'
+   */
+
+  [GAME10] = LAYOUT( \
+    GTAB,    KC_Q,  KC_W,   KC_E,  KC_R,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_LSFT, KC_A,  KC_S,   KC_D,  KC_F,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_Z,    KC_X,  KC_LALT,KC_SPC,G11_C, XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
+    XXXXX,   XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
+  ),
+  /* GAME11(Cyberpunk2077)
+   * ,-----------------------------------------, ,-----------------------------------------,
+   * |  1   |  M   |  J   |  K   |  3   |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |  T   |  I   |  O   |  P   |      |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |  N   |  V   |      |      |      |      | |      |      |      |      |      |  DQG |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |      |      |      |      |      |      | |      |      |      |      |      |      |
+   * `-----------------------------------------' `-----------------------------------------'
+   */
+
+  [GAME11] = LAYOUT( \
+    KC_1,   KC_M,  KC_J,  KC_K,  KC_3,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_T,   KC_I,  KC_O,  KC_P,  XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_N,   KC_V,  XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
+    XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
+  ),
+
 };
 
 void persistent_default_layer_set(uint16_t default_layer) {
@@ -585,6 +667,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       SEND_STRING(SS_LCTRL("c") "p");
     }
     return false;
+  case CZCZ:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTRL("z"));
+      SEND_STRING(SS_LCTRL("z"));
+    }
+    break;
   }
   return true;
 }

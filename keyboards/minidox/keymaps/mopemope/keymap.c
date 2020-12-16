@@ -440,9 +440,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------.           ,----------------------------------.
  * |  ESC |  Q   |  W   |  E   |  R   |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  SFT |  A   |  S   |  D   |  X   |           |      |      |      |      |      |
+ * |  SFT |  A   |  S   |  D   |  F   |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  CTL |  G   |  B   |  F   |  C   |           |      |      |      |      |      |
+ * |  CTL |  X   |  B   |  G   |  C   |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |  V   |  4   |      |    |      |      |      |
@@ -452,8 +452,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [GAME1] =  LAYOUT( \
   GTAB,    KC_Q,   KC_W,  KC_E,   KC_R,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
-  KC_LSFT, KC_A,   KC_S,  KC_D,   KC_X,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
-  GCTL,    KC_G,   KC_B,  KC_F,   KC_C,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  KC_LSFT, KC_A,   KC_S,  KC_D,   KC_F,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  GCTL,    KC_X,   KC_B,  KC_G,   KC_C,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
                    KC_V,  KC_4,   KC_SPC,      DQG,     DQG,     DQG                     \
 ),
 
@@ -508,7 +508,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |LSHIFT|  A   |  S   |  D   |  F   |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  H   |  X   | ALT  |  V   |  T   |           |      |      |      |      |      |
+ * |  Z   |  X   | ALT  |  V   |  T   |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |  Z  |  C    |      |    |      |      |      |
@@ -519,7 +519,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [GAME4] =  LAYOUT( \
   GTAB,    KC_Q,  KC_W,  KC_E,   KC_R,         XXXXX,  XXXXX,    KUP,    XXXXX,   XXXXX, \
   KC_LSFT, KC_A,  KC_S,  KC_D,   KC_F,         XXXXX,  KLEFT,    KDOWN,  KRIGHT,  XXXXX, \
-  KC_H,    KC_X,  GALT,  KC_V,   KC_T,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  KC_Z,    KC_X,  GALT,  KC_V,   KC_T,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
                   KC_Z,  G5_C,   KC_SPC,       DQG,    DQG,      DQG                     \
 ),
 /* GAME5(Cyberpunk2077)
@@ -529,7 +529,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |  I   |  O   |  P   |      |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  N   |      |      |      |      |           |      |      |      |      |      |
+ * |  N   |  V   |      |      |      |           |      |      |      |      |      |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |     |       |      |    |      |      |      |
@@ -540,7 +540,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [GAME5] =  LAYOUT( \
   KC_1,   KC_M,   KC_J,   KC_K,   KC_3,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
   _____,  KC_I,   KC_O,   KC_P,   _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
-  KC_N,   _____,  _____,  _____,  _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  KC_N,   KC_V,   _____,  _____,  _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
                   _____,  _____,  _____,        DQG,     DQG,     DQG                     \
 ),
 
