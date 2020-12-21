@@ -9,17 +9,21 @@
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_A):
-            return 1000;
+            return 500;
         case LCTL_T(KC_Z):
-            return 1000;
+            return 500;
         case LSFT_T(KC_X):
-            return 1000;
+            return 500;
         case LALT_T(KC_C):
-            return 1000;
+            return 500;
         case LT(4,KC_V):
-            return 1000;
+            return 500;
         case LT(3,KC_ENT):
             return 180;
+        case LT(2,KC_B):
+            return 120;
+        case LT(1,KC_N):
+            return 120;
         default:
             return TAPPING_TERM;
     }
@@ -37,6 +41,10 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
             return false;
         case LT(4,KC_V):
             return false;
+        case LT(2,KC_B):
+            return false;
+        case LT(1,KC_N):
+            return false;
         default:
             return true;
     }
@@ -45,6 +53,10 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(3,KC_ENT):
+            return true;
+        case LT(2,KC_B):
+            return true;
+        case LT(1,KC_N):
             return true;
         default:
             return false;
@@ -62,6 +74,10 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
         case LALT_T(KC_C):
             return true;
         case LT(4,KC_V):
+            return true;
+        case LT(2,KC_B):
+            return true;
+        case LT(1,KC_N):
             return true;
         default:
             return false;
@@ -116,7 +132,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split(
     TD(TD_Q_ESC), KC_W,         KC_E,         KC_R,         KC_T,        KC_Y,        KC_U,    KC_I,    KC_O,           KC_BSPC,
     LCTL_T(KC_A), KC_S,         KC_D,         KC_F,         KC_G,        KC_H,        KC_J,    KC_K,    KC_L,           LT(5,KC_P),
-    LCTL_T(KC_Z), LSFT_T(KC_X), LALT_T(KC_C), LT(4,KC_V),   LT(2,KC_B),  LT(1,KC_N),  TD(TD_M_SPC), KC_COMM, LSFT_T(KC_DOT), LT(3,KC_ENT)),
+    LCTL_T(KC_Z), LSFT_T(KC_X), LALT_T(KC_C), LT(4,KC_V),   LT(2,KC_B),  LT(1,KC_N),  KC_M,    KC_COMM, LSFT_T(KC_DOT), LT(3,KC_ENT)),
 
   [1] = LAYOUT_split(
     KC_1,         KC_2,         KC_3,         KC_4,         KC_5,        KC_6,        KC_7,    KC_8,    KC_9,           KC_0,
