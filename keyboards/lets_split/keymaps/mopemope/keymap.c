@@ -16,6 +16,8 @@ extern keymap_config_t keymap_config;
 #define GAME2  10
 #define GAME3  11
 #define GAME4  12
+#define GAME5  13
+#define GAME6  14
 
 #define _____ KC_TRNS
 #define XXXXX KC_NO
@@ -133,6 +135,7 @@ extern keymap_config_t keymap_config;
 #define DQG    DF(QGMLWY)
 #define GR6S   DF(GAME1)
 #define GCP    DF(GAME3)
+#define GDV2   DF(GAME5)
 #define SELA   LCTL(KC_A)
 #define COPY   LCTL(KC_C)
 #define PASTE  LCTL(KC_V)
@@ -193,6 +196,7 @@ extern keymap_config_t keymap_config;
 #define CTL    OSM(MOD_RCTL)
 #define G2_C   LT(GAME2,KC_C)
 #define G4_C   LT(GAME4,KC_C)
+#define G6_B   LT(GAME6,KC_B)
 
 // COMB
 // C-V
@@ -394,7 +398,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    */
 
   [COMBT] = LAYOUT( \
-    _____,  GR6S,   GCP,   _____, _____, XXXXX,  XXXXX, DQT,   EXLM,  PLUS,  ASTR,   PIPE,   \
+    _____,  GR6S,   GCP,   GDV2,  _____, XXXXX,  XXXXX, DQT,   EXLM,  PLUS,  ASTR,   PIPE,   \
     _____,  _____,  _____, _____, _____, XXXXX,  XXXXX, TILD,  EQL,   COLN,  SCLN,   AT,     \
     _____,  _____,  _____, _____, _____, XXXXX,  XXXXX, _____, BSP,   COMM,  DOT,    SLSH,   \
     XXXXX,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX   \
@@ -470,6 +474,42 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_1,   KC_M,  KC_J,  KC_K,  KC_3,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
     KC_T,   KC_I,  KC_O,  KC_P,  XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
     KC_N,   KC_V,  XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
+    XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
+  ),
+  /* GAME5(Division2)
+   * ,-----------------------------------------, ,-----------------------------------------,
+   * |  TAB |  Q   |  W   |  E   |  R   |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |  SFT |  A   |  S   |  D   |  F   |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |   Z  |  X   |  CTL |  SPC |  B   |      | |      |      |      |      |      |  DQG |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |      |      |      |      |      |      | |      |      |      |      |      |      |
+   * `-----------------------------------------' `-----------------------------------------'
+   */
+
+  [GAME5] = LAYOUT( \
+    GTAB,    KC_Q,  KC_W,   KC_E,  KC_R,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_LSFT, KC_A,  KC_S,   KC_D,  KC_F,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_Z,    KC_X,  KC_LCTL,KC_SPC,G6_B,  XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
+    XXXXX,   XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
+  ),
+  /* GAME6(Division2)
+   * ,-----------------------------------------, ,-----------------------------------------,
+   * |  ESC |   G  |      |  T   |   Y  |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |   V  |   I  |  M   |  H   |      |      | |      |      |      |      |      |      |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |   C  |      |      |      |      |      | |      |      |      |      |      |  DQG |
+   * |------+------+------+------+------+------| |------+------+------+------+------+------|
+   * |      |      |      |      |      |      | |      |      |      |      |      |      |
+   * `-----------------------------------------' `-----------------------------------------'
+   */
+
+  [GAME6] = LAYOUT( \
+    ESC,    KC_G,  _____, KC_T,  KC_Y,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_V,   KC_I,  KC_M,  KC_H,  _____, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
+    KC_C,   XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
     XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
   ),
 
