@@ -196,7 +196,7 @@ extern keymap_config_t keymap_config;
 #define CTL    OSM(MOD_RCTL)
 #define G2_C   LT(GAME2,KC_C)
 #define G4_C   LT(GAME4,KC_C)
-#define G6_B   LT(GAME6,KC_B)
+#define G6_T   LT(GAME6,KC_TAB)
 
 // COMB
 // C-V
@@ -482,7 +482,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
    * |  SFT |  A   |  S   |  D   |  F   |      | |      |      |      |      |      |      |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
-   * |   Z  |  X   |  CTL |  SPC |  B   |      | |      |      |      |      |      |  DQG |
+   * |   Z  |  X   |  CTL |  SPC |  TAB |      | |      |      |      |      |      |  DQG |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
    * |      |      |      |      |      |      | |      |      |      |      |      |      |
    * `-----------------------------------------' `-----------------------------------------'
@@ -491,7 +491,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [GAME5] = LAYOUT( \
     GTAB,    KC_Q,  KC_W,   KC_E,  KC_R,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
     KC_LSFT, KC_A,  KC_S,   KC_D,  KC_F,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
-    KC_Z,    KC_X,  KC_LCTL,KC_SPC,G6_B,  XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
+    KC_Z,    KC_X,  KC_LCTL,KC_SPC,G6_T,  XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
     XXXXX,   XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
   ),
   /* GAME6(Division2)
@@ -500,7 +500,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
    * |   V  |   I  |  M   |  H   |      |      | |      |      |      |      |      |      |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
-   * |   C  |      |      |      |      |      | |      |      |      |      |      |  DQG |
+   * |   C  |   B  |      |      |      |      | |      |      |      |      |      |  DQG |
    * |------+------+------+------+------+------| |------+------+------+------+------+------|
    * |      |      |      |      |      |      | |      |      |      |      |      |      |
    * `-----------------------------------------' `-----------------------------------------'
@@ -509,7 +509,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [GAME6] = LAYOUT( \
     ESC,    KC_G,  _____, KC_T,  KC_Y,  XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
     KC_V,   KC_I,  KC_M,  KC_H,  _____, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,     \
-    KC_C,   XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
+    KC_C,   KC_B,  XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, _____, XXXXX, XXXXX, XXXXX, DQG,       \
     XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX,  XXXXX, XXXXX, XXXXX, XXXXX, XXXXX, XXXXX      \
   ),
 
