@@ -1,4 +1,3 @@
-
 #include QMK_KEYBOARD_H
 #include "keymap_jp.h"
 
@@ -144,7 +143,6 @@ extern keymap_config_t keymap_config;
 #define PASTE  LCTL(KC_V)
 #define CZ     LCTL(KC_Z)
 #define CSL    LCTL(JP_SLSH)
-#define CF     LCTL(KC_F)
 #define CMN    LALT(LCTL(KC_N))
 #define CMM    LALT(LCTL(KC_M))
 #define CMD    LALT(LCTL(JP_DOT))
@@ -160,6 +158,8 @@ extern keymap_config_t keymap_config;
 #define CE     LCTL(KC_E)
 #define CP     LCTL(KC_P)
 #define CN     LCTL(KC_N)
+#define CF     LCTL(KC_F)
+#define CB     LCTL(KC_B)
 #define CAT    LCTL(JP_AT)
 #define MX     LALT(KC_X)
 #undef  MD
@@ -386,8 +386,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                `------'    `------'
  */
 [COMBN] =  LAYOUT( \
-  _____,   CG,   _____,  CL,     _____,        CMY,    CCP,     CUP,    CCN,    MD,    \
-  TAB,     CS,   CT,     _____,  _____,        MSCLN,  CLEFT,   CDOWN,  CRIGHT, CAT,   \
+  _____,   CG,   _____,  CL,     _____,        CMY,    CCP,     CP,     CCN,    MD,    \
+  TAB,     CS,   CT,     _____,  _____,        MSCLN,  CB,      CN,     CF,     CAT,   \
   _____,   CX,   CRET,   CSPC,   _____,        MCOM,   MDOT,    CCOM,   CDOT,   CXU ,  \
                  _____,  _____,  _____,        _____,  _____,   _____                  \
 ),
