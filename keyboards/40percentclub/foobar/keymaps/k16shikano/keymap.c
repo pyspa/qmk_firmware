@@ -9,21 +9,25 @@
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_A):
-            return 500;
+            return 300;
         case LCTL_T(KC_Z):
-            return 500;
+            return 300;
+        case LCTL_T(KC_S):
+            return 300;
         case LSFT_T(KC_X):
-            return 500;
+            return 300;
+        case LSFT_T(KC_G):
+            return 300;
         case LALT_T(KC_C):
-            return 500;
+            return 300;
         case LT(4,KC_V):
-            return 500;
+            return 300;
         case LT(3,KC_ENT):
             return 180;
         case LT(2,KC_B):
-            return 120;
+            return 110;
         case LT(1,KC_N):
-            return 120;
+            return 140;
         default:
             return TAPPING_TERM;
     }
@@ -35,7 +39,11 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
             return false;
         case LCTL_T(KC_Z):
             return false;
+        case LCTL_T(KC_S):
+            return false;
         case LSFT_T(KC_X):
+            return false;
+        case LSFT_T(KC_G):
             return false;
         case LALT_T(KC_C):
             return false;
@@ -44,7 +52,7 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case LT(2,KC_B):
             return false;
         case LT(1,KC_N):
-            return false;
+            return true;
         default:
             return true;
     }
@@ -58,6 +66,8 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
             return true;
         case LT(1,KC_N):
             return true;
+        case LCTL_T(KC_S):
+            return true;
         default:
             return false;
     }
@@ -69,25 +79,41 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
             return true;
         case LCTL_T(KC_Z):
             return true;
+        case LCTL_T(KC_S):
+            return true;
         case LSFT_T(KC_X):
+            return true;
+        case LSFT_T(KC_G):
             return true;
         case LALT_T(KC_C):
             return true;
         case LT(4,KC_V):
             return true;
         case LT(2,KC_B):
-            return true;
+            return false;
         case LT(1,KC_N):
+            return false;
+        default:
+            return false;
+    }
+}
+
+bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LCTL_T(KC_S):
             return true;
         default:
             return false;
     }
 }
 
+
 // Tap Dance declarations
 enum {
       TD_Q_ESC,
-      TD_M_SPC,
+      TD_CD,
+      TD_ST,
+      TD_O_HY,
 };
 
 void dance_q_finished(qk_tap_dance_state_t *state, void *user_data) {
@@ -106,38 +132,72 @@ void dance_q_reset(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void dance_m_finished(qk_tap_dance_state_t *state, void *user_data) {
+void dance_cd_finished(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        register_code16(KC_M);
+        register_code16(KC_COMMA);
     } else {
-      register_code(KC_SPC);
+      register_code(KC_DOT);
     }
 }
 
-void dance_m_reset(qk_tap_dance_state_t *state, void *user_data) {
+void dance_cd_reset(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        unregister_code16(KC_M);
+        unregister_code16(KC_COMMA);
     } else {
-        unregister_code(KC_SPC);
+        unregister_code(KC_DOT);
+    }
+}
+
+void dance_st_finished(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        register_code16(KC_SPACE);
+    } else {
+      register_code(KC_TAB);
+    }
+}
+
+void dance_st_reset(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        unregister_code16(KC_SPACE);
+    } else {
+        unregister_code(KC_TAB);
+    }
+}
+
+void dance_ohy_finished(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        register_code16(KC_O);
+    } else {
+      register_code(KC_MINUS);
+    }
+}
+
+void dance_ohy_reset(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        unregister_code16(KC_O);
+    } else {
+        unregister_code(KC_MINUS);
     }
 }
 
 // All tap dance functions would go here. Only showing this one.
 qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_Q_ESC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_q_finished, dance_q_reset),
-    [TD_M_SPC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_m_finished, dance_m_reset),
+    [TD_CD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_cd_finished, dance_cd_reset),
+    [TD_ST] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_st_finished, dance_st_reset),
+    [TD_O_HY] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_ohy_finished, dance_ohy_reset),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split(
-    TD(TD_Q_ESC), KC_W,         KC_E,         KC_R,         KC_T,        KC_Y,        KC_U,    KC_I,    KC_O,           KC_BSPC,
-    LCTL_T(KC_A), KC_S,         KC_D,         KC_F,         KC_G,        KC_H,        KC_J,    KC_K,    KC_L,           LT(5,KC_P),
-    LCTL_T(KC_Z), LSFT_T(KC_X), LALT_T(KC_C), LT(4,KC_V),   LT(2,KC_B),  LT(1,KC_N),  KC_M,    KC_COMM, LSFT_T(KC_DOT), LT(3,KC_ENT)),
+    TD(TD_Q_ESC), KC_W,         KC_E,         KC_R,         KC_T,        KC_Y,        KC_U,    KC_I,    TD(TD_O_HY),    KC_BSPC,
+    LCTL_T(KC_A), LCTL_T(KC_S), KC_D,         KC_F,         LSFT_T(KC_G),KC_H,        KC_J,    KC_K,    KC_L,           LT(5,KC_P),
+    LCTL_T(KC_Z), LSFT_T(KC_X), LALT_T(KC_C), LT(4,KC_V),   LT(2,KC_B),  LT(1,KC_N),  KC_M,    TD(TD_CD),LSFT_T(KC_DOT), LT(3,KC_ENT)),
 
   [1] = LAYOUT_split(
     KC_1,         KC_2,         KC_3,         KC_4,         KC_5,        KC_6,        KC_7,    KC_8,    KC_9,           KC_0,
-    KC_TAB,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_SPC,      KC_SPC,      KC_SPC,  KC_TRNS, KC_TRNS,        KC_DEL,
-    KC_LCTL,      KC_LSFT,      KC_LALT,      KC_SPC,       KC_SPC,      LT(1,KC_NO), KC_SPC,  KC_SPC,  KC_SPC,         LALT(KC_GRV)),
+    KC_TAB,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_SPC,      KC_SPC,      KC_SPC,  KC_ASTR, KC_MINS,        KC_DEL,
+    KC_LCTL,      KC_LSFT,      KC_LALT,      KC_SPC,       TD(TD_ST),   LT(1,KC_NO), KC_SPC,  KC_SPC,  KC_SPC,         LALT(KC_GRV)),
 
   [2] = LAYOUT_split(
     KC_EXLM,      KC_AT,        KC_HASH,      KC_DLR,       KC_PERC,     KC_CIRC,     KC_AMPR, KC_ASTR, KC_MINS,        KC_EQL,
