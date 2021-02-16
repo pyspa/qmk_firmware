@@ -251,6 +251,7 @@ enum custom_keycodes {
   CCP,
   CZCZ,
   CCZ,
+  CCX,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -355,7 +356,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,----------------------------------.           ,----------------------------------.
  * | ZHTG |  C-G | C-M-M|  C-L | M-%  |           |      |      |      |      |      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  M-D |  C-S |  C-T | C-M-N| M-X  |           |      |      |   [  | C-M-.|  C-@ |
+ * |  M-D |  C-S |  C-T | C-M-N| M-X  |           |      |      | CCZ  | C-M-.|  C-@ |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |  C-Z |  C-X |  C-C |      |      |           |      |      |      |      |      |
  * `-------------+------+------+------|           |------+------+------+------+------'
@@ -366,25 +367,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   CQ,      CG,     CMM,   CL,    APERC,            _____, CXCF,   CXU,   CXCB,  _____,   \
   MD,      CXCS,   CT,    CMN,   MX,               _____, _____,  CCZ,   CXO,    CAT,    \
   CZ,      CX,     CC,    _____, _____,            _____, _____,  CK,   _____,  _____,   \
-                   _____, _____, ZHTG,             _____, _____,  _____                  \
+                   _____, _____, ZHTG,             CCX,   _____,  _____                  \
 ),
 
 /* COMB_LEFT (Emacs)
  *
  * ,----------------------------------.           ,----------------------------------.
- * |      |  C-G |      |      |      |           |      |  C-> |  UP  |  C-> |  C-| |
+ * |      |  C-G |      |      |      |           |      |  M-, |  UP  |  M-. |  C-| |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |  TAB |  C-S |  C-T |      |      |           |  M-; | LEFT | DOWN | RIGHT|  C-@ |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |  C-X |  CRET| CSPC |      |           |  M-, |  M-. |  C-, |  C-. |  C-/ |
+ * |      |  C-X |  CRET| CSPC |      |           |      |      |      |      |  C-/ |
  * `-------------+------+------+------|           |------+------+------+------+------'
  *               |      |      |      |           |      |      |      |
  *               `--------------------'           `--------------------'
  */
 [COMBN] = LAYOUT( \
-  _____,   CG,     _____, CL,    _____,            CMY,   CCP,    CP,    CCN,   MD,     \
+  _____,   CG,     _____, CL,    _____,            _____, MCOM,   CP,    MDOT,  MD,     \
   TAB,     CS,     CT,    _____, _____,            MSCLN, CB,     CN,    CF,    CAT,    \
-  _____,   CX,     CRET,  CSPC,  _____,            MCOM,  MDOT,   CCOM,  CDOT,  CXU,    \
+  _____,   CX,     CRET,  CSPC,  _____,            MCOM,  MDOT,   _____, _____, CXU,    \
                    _____, _____, _____,            _____, _____,  _____                 \
 ),
 
@@ -609,6 +610,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case CCZ:
     if (record->event.pressed) {
       SEND_STRING(SS_LCTRL("c") "z");
+    }
+    break;
+  case CCX:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTRL("c") "x");
     }
     break;
   }
