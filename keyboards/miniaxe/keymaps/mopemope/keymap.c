@@ -1,6 +1,5 @@
-
 /* Copyright 2018 ENDO Katsuhiro <ka2hiro@curlybracket.co.jp>
- *z
+ *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 2 of the License, or
@@ -29,9 +28,7 @@ extern keymap_config_t keymap_config;
 #define COMBN   6
 #define COMBE   7
 #define COMBT   8
-#define GAME1   9
-#define GAME2  10
-#define GAME3  11
+#define VAL1    9
 #define R6S1   12
 #define R6S2   13
 #define DIV1   14
@@ -151,7 +148,8 @@ extern keymap_config_t keymap_config;
 #define C_S    SFT_T(KC_C)
 #define ESC    KC_ESC
 #define DQG    DF(QGMLWY)
-#define GVAL   DF(GAME1)
+//#define GVAL   DF(GAME1)
+#define GVAL   DF(VAL1)
 #define GR6S   DF(R6S1)
 #define GDV2   DF(DIV1)
 #define SELA   LCTL(KC_A)
@@ -410,7 +408,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* COMB_LEFT2 (COMBT)
  *
  * ,----------------------------------.           ,----------------------------------.
- * |      |      |      |      |      |           |   (  |   )  |   +  |   *  |   |  |
+ * |      | VAL  | R6S  | DIV2 |      |           |   (  |   )  |   +  |   *  |   |  |
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |      |      |      |      |      |           |   ~  |   =  |   :  |   ;  |   @  |
  * |------+------+------+------+------|           |------+------+------+------+------|
@@ -420,49 +418,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *               `--------------------'           `--------------------'
  */
 [COMBT] = LAYOUT( \
-  _____,   _____,  GR6S,  GDV2,  _____,            DQT,   EXLM,   PLUS,  ASTR,   PIPE,    \
+  _____,   GVAL,   GR6S,  GDV2,  _____,            DQT,   EXLM,   PLUS,  ASTR,   PIPE,    \
   _____,   _____,  _____, _____, _____,            TILD,  EQL,    COLN,  SCLN,   AT,      \
   _____,   _____,  _____, _____, _____,            _____, MINS,   COMM,  DOT,    SLSH,    \
                    RSAD,  RSAI,  RTOG,             _____, _____,  _____                   \
 ),
 
-/* GAME1
- *
- * ,----------------------------------.           ,----------------------------------.
- * |      |      |      |      |      |           | DQG  |      |      |      |      |
- * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |      |      |      |      |           |      |      |      |      |      |
- * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |      |      |      |      |           |      |      |      |      |      |
- * `-------------+------+------+------|           |------+------+------+------+------'
- *               |      |      |      |           |      |      |      |
- *               `--------------------'           `--------------------'
- */
-[GAME1] = LAYOUT( \
-  _____,   _____,  _____, _____, _____,            _____, _____,  _____, _____,  _____,   \
-  _____,   _____,  _____, _____, _____,            _____, _____,  _____, _____,  _____,   \
-  _____,   _____,  _____, _____, _____,            _____, _____,  _____, _____,  _____,   \
-                   _____, _____, _____,            _____, _____,  _____                   \
+[VAL1] = LAYOUT( \
+  TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             KC_1,  KC_2,   KC_3,  KC_4,  _____,   \
+  KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             KC_5,  KC_6,   KC_7,  KC_8,  _____,   \
+  GCTL,   KC_X,   KC_C,  KC_M,  KC_COMM,          _____, _____,  _____, _____,  _____,   \
+                  _____, KC_C,  KC_SPC,           DQG,   ALTZ,   ESC                     \
 ),
 
-/* GAME2
- *
- * ,----------------------------------.           ,----------------------------------.
- * |      |      |      |      |      |           | DQG  |      |      |      |      |
- * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |      |      |      |      |           |      |      |      |      |      |
- * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |      |      |      |      |           |      |      |      |      |      |
- * `-------------+------+------+------|           |------+------+------+------+------'
- *               |      |      |      |           |      |      |      |
- *               `--------------------'           `--------------------'
- */
-[GAME2] = LAYOUT( \
-  _____,   _____,  _____, _____, _____,            _____, _____,  _____, _____,  _____,   \
-  _____,   _____,  _____, _____, _____,            _____, _____,  _____, _____,  _____,   \
-  _____,   _____,  _____, _____, _____,            _____, _____,  _____, _____,  _____,   \
-                   _____, _____, _____,            _____, _____,  _____                   \
-),
 
 [R6S1] = LAYOUT( \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,            _____, _____,  _____, _____,  _____,   \
@@ -585,15 +553,6 @@ uint32_t layer_state_set_user(uint32_t state) {
       break;
     case COMBT:
       rgblight_mode(6);
-      break;
-    case GAME1:
-      rgblight_mode(9);
-      break;
-    case GAME2:
-      rgblight_mode(9);
-      break;
-    case GAME3:
-      rgblight_mode(9);
       break;
     default:
       break;
