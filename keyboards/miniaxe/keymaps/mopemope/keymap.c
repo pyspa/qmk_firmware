@@ -558,11 +558,11 @@ uint32_t layer_state_set_user(uint32_t state) {
     }
     break;
   case LOWER:
-    rgblight_mode(RGBLIGHT_MODE_KNIGHT);
+    rgblight_mode(RGBLIGHT_MODE_KNIGHT+1);
     rgblight_sethsv(HSV_BLUE);
     break;
   case RAISE:
-    rgblight_mode(RGBLIGHT_MODE_KNIGHT);
+    rgblight_mode(RGBLIGHT_MODE_KNIGHT+1);
     rgblight_sethsv(HSV_BLUE);
     break;
   case MISCL:
@@ -582,11 +582,11 @@ uint32_t layer_state_set_user(uint32_t state) {
     rgblight_sethsv(HSV_GOLD);
     break;
   case COMBE:
-    rgblight_mode(RGBLIGHT_MODE_TWINKLE+5);
+    rgblight_mode(RGBLIGHT_MODE_BREATHING+2);
     rgblight_sethsv(HSV_AZURE);
     break;
   case COMBT:
-    rgblight_mode(RGBLIGHT_MODE_TWINKLE+5);
+    rgblight_mode(RGBLIGHT_MODE_BREATHING+2);
     rgblight_sethsv(HSV_AZURE);
     break;
   default:
