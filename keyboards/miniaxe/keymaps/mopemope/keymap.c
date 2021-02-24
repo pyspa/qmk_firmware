@@ -419,14 +419,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [EFT1] = LAYOUT( \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,              KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,              KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
-  KC_CAPS,KC_X,   KC_C,  KC_V,  KC_G,              KC_T,  KC_B,   KC_L,  _____, DEL,    \
-                  GALT,  GCTL,  EFTS,              DQG,   ALTZ,   ESC                   \
+  KC_CAPS,KC_X,   KC_C,  KC_V,  KC_G,              KC_O,  KC_T,   KC_B,  KC_L,  DEL,    \
+                  GCTL,  GALT,  EFTS,              DQG,   ALTZ,   ESC                   \
 ),
 
 [EFT2] = LAYOUT( \
-  ESC,    AQ,     _____, AE,    KC_Y,              KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
-  _____,  _____,  _____, KC_N,  KC_B,              KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
-  KC_Z,   _____,  KC_T,  KC_U,  KC_O,              _____, _____,  PGUP,  PGDN,  _____,  \
+  ESC,    _____,  _____, _____, KC_Y,              KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
+  _____,  _____,  _____, KC_N,  KC_U,              KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
+  KC_Z,   _____,  _____, _____, _____,             KC_U,  _____,  PGUP,  PGDN,  _____, \
                   _____, _____, _____,             _____, _____,  _____                 \
 ),
 
@@ -444,6 +444,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _____,  _____,  KC_U,  _____, _____,            _____, _____,  _____, _____,  _____,   \
                   _____, _____, _____,            DQG,   ALTZ,   ESC                     \
 ),
+
 [DIV1] = LAYOUT( \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             _____, _____,  _____, _____,  _____,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             _____, _____,  _____, _____,  _____,   \
@@ -525,7 +526,7 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case GEFT:
       rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
-      rgblight_sethsv(HSV_BLUE);
+      rgblight_sethsv(HSV_WHITE);
       change = true;
       break;
     case GR6S:
@@ -535,7 +536,7 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case GDV2:
       rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
-      rgblight_sethsv(HSV_WHITE);
+      rgblight_sethsv(HSV_CYAN);
       change = true;
       break;
     case DQG:
@@ -548,13 +549,19 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+bool main_mode = true;
 uint32_t layer_state_set_user(uint32_t state) {
   uint8_t layer = biton32(state);
   switch (layer) {
   case QGMLWY:
     if (!change) {
       rgblight_sethsv(0xFF, 0xFF, 0xFF);
-      rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD+1);
+      if (main_mode) {
+        rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD + 1);
+      } else {
+        rgblight_mode(RGBLIGHT_MODE_TWINKLE+5);
+      }
+      main_mode = !main_mode;
     }
     break;
   case LOWER:
@@ -595,7 +602,6 @@ uint32_t layer_state_set_user(uint32_t state) {
 
   return state;
 }
-
 
 void matrix_init_user(void) {
 }
