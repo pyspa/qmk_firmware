@@ -145,11 +145,13 @@ extern keymap_config_t keymap_config;
 #define ZHTG   JP_ZHTG
 #define C_S    SFT_T(KC_C)
 #define ESC    KC_ESC
+
 #define DQG    DF(QGMLWY)
 #define GVAL   DF(VAL1)
 #define GEFT   DF(EFT1)
 #define GR6S   DF(R6S1)
 #define GDV2   DF(DIV1)
+
 #define SELA   LCTL(KC_A)
 #define COPY   LCTL(KC_C)
 #define PASTE  LCTL(KC_V)
@@ -327,7 +329,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *               `--------------------'           `--------------------'
  */
 [MISCR] = LAYOUT( \
-  RESET,   _____,  _____,  _____, PREVW,             _____, PGDN,   KUP,   PGUP,   RESET,   \
+  RESET,   _____,  _____,  _____, PREVW,             _____, MLT,    KUP,   MGT,    DEL,     \
   TAB,     _____,  _____,  _____, NEXTW,             _____, KLEFT,  KDOWN, KRIGHT, _____,   \
   _____,   _____,  _____,  _____, _____,             _____, _____,  _____, _____,  _____,   \
                    _____,  _____, KC_SPC,            _____, _____,  _____                   \
@@ -595,6 +597,25 @@ uint32_t layer_state_set_user(uint32_t state) {
   case COMBT:
     rgblight_mode(RGBLIGHT_MODE_BREATHING+2);
     rgblight_sethsv(HSV_AZURE);
+    break;
+  case VAL1:
+    rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+    rgblight_sethsv(HSV_PURPLE);
+    break;
+  case EFT1:
+  case EFT2:
+    rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+    rgblight_sethsv(HSV_WHITE);
+    break;
+  case R6S1:
+  case R6S2:
+    rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+    rgblight_sethsv(HSV_GREEN);
+    break;
+  case DIV1:
+  case DIV2:
+    rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+    rgblight_sethsv(HSV_CYAN);
     break;
   default:
     break;
