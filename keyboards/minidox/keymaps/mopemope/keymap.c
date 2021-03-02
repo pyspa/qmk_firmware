@@ -466,7 +466,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [R6S1] = LAYOUT(                                                                         \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             _____, _____,  _____, _____,  _____,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             _____, _____,  _____, _____,  _____,   \
-  GCTL,   KC_X,   KC_C,  KC_6,  KC_5,             KC_Z,  _____,  _____, _____,  _____,   \
+  KC_Z,   KC_X,   KC_C,  KC_6,  KC_5,             KC_Z,  _____,  _____, _____,  _____,   \
                   KC_V,  R6_C,  KC_SPC,           DQG,   ALTZ,   ESC                     \
 ),
 
