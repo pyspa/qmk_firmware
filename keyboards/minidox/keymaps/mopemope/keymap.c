@@ -483,7 +483,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [APEX1] = LAYOUT(                                                                         \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             _____, _____,  _____, _____,  _____,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             _____, KC_ENT, _____, _____,  _____,   \
-  GCTL,   KC_Z,   KC_C,  KC_X,  KC_G,             _____, KC_T,   KC_B,  KC_N,  _____,   \
+  KC_C,   KC_Z,   GCTL,  KC_X,  KC_G,             _____, KC_T,   KC_B,  KC_N,  _____,   \
                   KC_V,  AP_I,  KC_SPC,           DQG,   ALTZ,   ESC                     \
 ),
 
