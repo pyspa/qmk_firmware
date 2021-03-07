@@ -207,6 +207,7 @@ extern keymap_config_t keymap_config;
 #define C_V    LCTL(KC_V)
 #define M_V    LALT(KC_V)
 #define ALTZ   LALT(KC_Z)
+#define REC    LALT(KC_F9)
 #define C_LT   LCTL(JP_LT)
 #define C_GT   LCTL(JP_GT)
 #define EFTS   LT(EFT2,KC_SPC)
@@ -455,13 +456,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [EFT1] = LAYOUT(                                                                        \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,              KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,              KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
-  KC_CAPS,KC_X,   KC_C,  KC_V,  KC_G,              KC_O,  KC_T,   KC_B,  KC_L,  DEL,    \
-                  GCTL,  GALT,  EFTS,              DQG,   ALTZ,   ESC                   \
+  KC_CAPS,KC_X,   KC_C,  KC_V,  KC_G,              KC_O,  KC_T,   KC_B,  KC_N,  DEL,    \
+                  GCTL,  GALT,  EFTS,              DQG,   ALTZ,   REC                   \
 ),
 
 [EFT2] = LAYOUT(                                                                        \
   ESC,    _____,  _____, _____, KC_Y,              KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
-  _____,  _____,  _____, KC_N,  KC_U,              KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
+  _____,  _____,  _____, KC_L,  KC_U,              KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
   KC_Z,   _____,  _____, _____, _____,             KC_U,  _____,  PGUP,  PGDN,  _____,  \
                   _____, _____, _____,             _____, _____,  _____                 \
 ),
@@ -470,28 +471,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             _____, _____,  _____, _____,  _____,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             _____, _____,  _____, _____,  _____,   \
   KC_Z,   KC_X,   KC_C,  KC_6,  KC_5,             KC_Z,  _____,  _____, _____,  _____,   \
-                  KC_V,  R6_C,  KC_SPC,           DQG,   ALTZ,   ESC                     \
+                  KC_V,  R6_C,  KC_SPC,           DQG,   ALTZ,   REC                     \
 ),
 
 [R6S2] = LAYOUT(                                                                         \
   ESC,    KC_F5,  KC_F6, KC_F7, KC_Y,             _____, _____,  _____, _____,  _____,   \
   _____,  KC_5,   KC_6,  KC_7,  KC_F,             _____, _____,  _____, _____,  _____,   \
   KC_Z,   _____,  KC_U,  _____, _____,            _____, _____,  _____, _____,  _____,   \
-                  _____, _____, _____,            DQG,   ALTZ,   ESC                     \
+                  _____, _____, _____,            DQG,   ALTZ,   REC                     \
 ),
 
-[APEX1] = LAYOUT(                                                                         \
+[APEX1] = LAYOUT(                                                                        \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             _____, _____,  _____, _____,  _____,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             _____, KC_ENT, _____, _____,  _____,   \
-  KC_C,   KC_Z,   GCTL,  KC_X,  KC_G,             _____, KC_T,   KC_B,  KC_N,  _____,   \
-                  KC_V,  AP_I,  KC_SPC,           DQG,   ALTZ,   ESC                     \
+  KC_C,   KC_Z,   GCTL,  KC_X,  KC_G,             _____, KC_T,   KC_B,  KC_N,  _____,    \
+                  KC_V,  AP_I,  KC_SPC,           DQG,   ALTZ,   REC                     \
 ),
 
-[APEX2] = LAYOUT(                                                                         \
+[APEX2] = LAYOUT(                                                                        \
   ESC,    KC_1,   KC_2,  KC_3,  KC_4,             _____, _____,  _____, _____,  _____,   \
   KC_5,   KC_6,   KC_7,  KC_8,  KC_9,             _____, _____,  _____, _____,  _____,   \
   KC_Z,   KC_M,   KC_H,  KC_N,  KC_B,             _____, _____,  _____, _____,  _____,   \
-                  _____, _____, _____,            DQG,   ALTZ,   ESC                     \
+                  _____, _____, _____,            DQG,   ALTZ,   REC                     \
 ),
 
 /* [DIV1] = LAYOUT(                                                        \ */
