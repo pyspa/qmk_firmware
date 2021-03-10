@@ -334,10 +334,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *               `--------------------'           `--------------------'
  */
 [MISCR] = LAYOUT( \
-  RESET,   _____,  _____,  _____, PREVW,             _____, MLT,    KUP,   MGT,    DEL,     \
-  TAB,     _____,  _____,  _____, NEXTW,             _____, KLEFT,  KDOWN, KRIGHT, _____,   \
-  _____,   _____,  _____,  _____, _____,             _____, _____,  _____, _____,  _____,   \
-                   _____,  _____, KC_SPC,            _____, _____,  _____                   \
+  RESET,   _____,  _____,  _____, PREVW,             PREVTB, MLT,    KUP,   MGT,    DEL,     \
+  TAB,     _____,  _____,  _____, NEXTW,             NEXTTB, KLEFT,  KDOWN, KRIGHT, _____,   \
+  _____,   _____,  _____,  _____, _____,             _____,  _____,  _____, _____,  _____,   \
+                   _____,  _____, KC_SPC,            BSP,    _____,  _____                   \
 ),
 
 /* COMB_RIGHT (Emacs)
