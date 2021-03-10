@@ -9,25 +9,27 @@
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LCTL_T(KC_A):
-            return 300;
+            return 150;
         case LCTL_T(KC_Z):
-            return 300;
+            return 225;
         case LCTL_T(KC_S):
-            return 300;
+            return 225;
         case LSFT_T(KC_X):
-            return 300;
+            return 150;
         case LSFT_T(KC_G):
-            return 300;
+            return 225;
+        case LT(4,KC_F):
+            return 225;
         case LALT_T(KC_C):
-            return 300;
+            return 225;
         case LT(4,KC_V):
-            return 300;
+            return 225;
         case LT(3,KC_ENT):
-            return 180;
+            return 130;
         case LT(2,KC_B):
-            return 110;
+            return 100;
         case LT(1,KC_N):
-            return 140;
+            return 200;
         default:
             return TAPPING_TERM;
     }
@@ -50,9 +52,9 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case LT(4,KC_V):
             return false;
         case LT(2,KC_B):
-            return false;
-        case LT(1,KC_N):
             return true;
+        case LT(1,KC_N):
+            return false;
         default:
             return true;
     }
@@ -60,9 +62,13 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 
 bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case LCTL_T(KC_A):
+            return true;
         case LT(3,KC_ENT):
             return true;
         case LT(2,KC_B):
+            return true;
+        case LSFT_T(KC_X):
             return true;
         case LT(1,KC_N):
             return true;
@@ -92,9 +98,9 @@ bool get_ignore_mod_tap_interrupt(uint16_t keycode, keyrecord_t *record) {
         case LT(2,KC_B):
             return false;
         case LT(1,KC_N):
-            return false;
+            return true;
         default:
-            return false;
+            return true;
     }
 }
 
@@ -107,13 +113,13 @@ bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-
 // Tap Dance declarations
 enum {
       TD_Q_ESC,
       TD_CD,
       TD_ST,
-      TD_O_HY,
+      TD_QT_DQ,
+      TD_SC_CL,
 };
 
 void dance_q_finished(qk_tap_dance_state_t *state, void *user_data) {
@@ -164,19 +170,35 @@ void dance_st_reset(qk_tap_dance_state_t *state, void *user_data) {
     }
 }
 
-void dance_ohy_finished(qk_tap_dance_state_t *state, void *user_data) {
+void dance_qtdq_finished(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        register_code16(KC_O);
+        register_code(KC_QUOT);
     } else {
-      register_code(KC_MINUS);
+      register_code16(KC_DQUO);
     }
 }
 
-void dance_ohy_reset(qk_tap_dance_state_t *state, void *user_data) {
+void dance_qtdq_reset(qk_tap_dance_state_t *state, void *user_data) {
     if (state->count == 1) {
-        unregister_code16(KC_O);
+        unregister_code(KC_QUOT);
     } else {
-        unregister_code(KC_MINUS);
+        unregister_code16(KC_DQUO);
+    }
+}
+
+void dance_sccl_finished(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        register_code(KC_SCLN);
+    } else {
+      register_code16(KC_COLN);
+    }
+}
+
+void dance_sccl_reset(qk_tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        unregister_code(KC_SCLN);
+    } else {
+        unregister_code16(KC_COLN);
     }
 }
 
@@ -185,37 +207,38 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_Q_ESC] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_q_finished, dance_q_reset),
     [TD_CD] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_cd_finished, dance_cd_reset),
     [TD_ST] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_st_finished, dance_st_reset),
-    [TD_O_HY] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_ohy_finished, dance_ohy_reset),
+    [TD_QT_DQ] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_qtdq_finished, dance_qtdq_reset),
+    [TD_SC_CL] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, dance_sccl_finished, dance_sccl_reset),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split(
-    TD(TD_Q_ESC), KC_W,         KC_E,         KC_R,         KC_T,        KC_Y,        KC_U,    KC_I,    TD(TD_O_HY),    KC_BSPC,
-    LCTL_T(KC_A), LCTL_T(KC_S), KC_D,         KC_F,         LSFT_T(KC_G),KC_H,        KC_J,    KC_K,    KC_L,           LT(5,KC_P),
-    LCTL_T(KC_Z), LSFT_T(KC_X), LALT_T(KC_C), LT(4,KC_V),   LT(2,KC_B),  LT(1,KC_N),  KC_M,    TD(TD_CD),LSFT_T(KC_DOT), LT(3,KC_ENT)),
+    TD(TD_Q_ESC), KC_W,         KC_E,         KC_R,         KC_T,        KC_Y,        KC_U,    KC_I,     KC_O,          KC_BSPC,
+    LCTL_T(KC_A), LCTL_T(KC_S), KC_D,         LT(4,KC_F),   LSFT_T(KC_G),LT(1,KC_H),  KC_J,    KC_K,     KC_L,          LT(5,KC_P),
+    LCTL_T(KC_Z), LSFT_T(KC_X), LALT_T(KC_C), LT(4,KC_V),   LT(2,KC_B),  LT(1,KC_N),  KC_M,    TD(TD_CD),LSFT_T(KC_DOT),LT(3,KC_ENT)),
 
   [1] = LAYOUT_split(
     KC_1,         KC_2,         KC_3,         KC_4,         KC_5,        KC_6,        KC_7,    KC_8,    KC_9,           KC_0,
-    KC_TAB,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_SPC,      KC_SPC,      KC_SPC,  KC_ASTR, KC_MINS,        KC_DEL,
-    KC_LCTL,      KC_LSFT,      KC_LALT,      KC_SPC,       TD(TD_ST),   LT(1,KC_NO), KC_SPC,  KC_SPC,  KC_SPC,         LALT(KC_GRV)),
+    KC_TAB,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_SPC,      KC_1,        KC_2,    KC_3,    KC_4,           KC_5,
+    KC_LCTL,      KC_LSFT,      KC_LALT,      KC_SPC,       KC_SPC,      KC_SPC,      KC_SPC,  KC_TAB,  KC_TAB,         LALT(KC_GRV)),
 
   [2] = LAYOUT_split(
     KC_EXLM,      KC_AT,        KC_HASH,      KC_DLR,       KC_PERC,     KC_CIRC,     KC_AMPR, KC_ASTR, KC_MINS,        KC_EQL,
-    KC_TAB,       KC_GRV,       KC_TILD,      LALT(KC_GRV), LALT(KC_GRV),KC_LPRN,     KC_RPRN, KC_SCLN, KC_QUOT,        KC_BSLS,
-    KC_LCTL,      KC_LSFT,      KC_LALT,      LALT(KC_GRV), LT(2,KC_NO), KC_LBRC,     KC_RBRC, KC_LT,   KC_GT,          KC_SLSH),
+    KC_TAB,       KC_GRV,       KC_TILD,      LALT(KC_GRV), LALT(KC_GRV),KC_LPRN,     KC_RPRN, TD(TD_SC_CL), TD(TD_QT_DQ), KC_BSLS,
+    KC_LCTL,      KC_LSFT,      KC_LALT,      LALT(KC_GRV), LT(2,KC_NO), KC_LBRC,     KC_RBRC, KC_LT,   KC_GT,          LT(3,KC_SLSH)),
 
   [3] = LAYOUT_split(
-    KC_ESC,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS,     KC_LEFT,     KC_UP,   KC_UP,   KC_UP,          KC_ESC,
-    KC_TAB,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS,     KC_LEFT,     KC_LEFT, KC_UP,   KC_RIGHT,       KC_TRNS,
-    KC_LCTL,      KC_LSFT,      KC_LALT,      KC_TRNS,      KC_TRNS,     KC_LEFT,     KC_LEFT, KC_DOWN, KC_RGHT,        LT(3,KC_NO)),
+    KC_ESC,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS,     KC_LEFT,     KC_UP,   KC_UP,   KC_UP,          KC_DEL,
+    KC_TAB,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS,     KC_LEFT,     KC_LEFT, KC_UP,   KC_RGHT,        KC_TRNS,
+    KC_LCTL,      KC_LSFT,      KC_LALT,      KC_TRNS,      KC_LSFT,     KC_LEFT,     KC_LEFT, KC_DOWN, KC_RGHT,        LT(3,KC_NO)),
 
   [4] = LAYOUT_split(
     KC_EXLM,      KC_AT,        KC_HASH,      KC_DLR,       KC_PERC,     KC_CIRC,     KC_AMPR, KC_ASTR, KC_MINS,        KC_EQL,
     KC_TAB,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS,     KC_LPRN,     KC_RPRN, KC_LCBR, KC_RCBR,        KC_BSLS,
-    KC_LCTL,      KC_LSFT,      KC_LALT,      LT(4,KC_NO),  KC_TRNS,     KC_LBRC,     KC_RBRC, KC_LT,   KC_GT,          KC_GRV),
+    KC_LCTL,      KC_LSFT,      KC_LALT,      LT(4,KC_NO),  KC_SPACE,    KC_LBRC,     KC_RBRC, KC_LT,   KC_GT,          KC_GRV),
 
   [5] = LAYOUT_split(
     KC_F1,        KC_F2,        KC_F3,        KC_F4,       KC_F5,        KC_F6,       KC_F7,   KC_F8,   KC_F9,          KC_F10,
     KC_F11,       KC_F12,       KC_TRNS,      KC_TRNS,     KC_TRNS,      KC_TRNS,     KC_TRNS, KC_TRNS, KC_TRNS,        LT(5,KC_NO),
-    KC_LCTL,      KC_LSFT,      KC_LALT,      KC_TRNS,      KC_TRNS,     RESET,       KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS)
+    KC_LCTL,      KC_LSFT,      KC_LALT,      KC_TRNS,     KC_DEL,       RESET,       KC_TRNS, KC_TRNS, KC_TRNS,        KC_TRNS)
 };
