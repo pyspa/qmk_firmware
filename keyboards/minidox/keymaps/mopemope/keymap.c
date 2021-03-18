@@ -244,7 +244,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |   Z  |   X  |   C  |   V  |      |           |      |   J  |   K  |   P  |   /  |
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
- *                  | SFT  | ALT  |      |    |      |  BSPC| SFT  |
+ *                  | SFT  | ALT  |      |    |      |  BSPC| TAB  |
  *                  `-------------| SPC  |    | ENT  |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
@@ -253,7 +253,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_Q,   KC_G,    KC_M,   KC_L,    KC_W,        KC_Y,    KC_F,    KC_U,   KC_B,   BSP, \
   D_M,    KC_S,    TC,     NC,      KC_R,        KC_I,    AC,      EC,     KC_O,   H_M, \
   Z_S,    X_CT,    KC_C,   V_A,     _____,       _____,   J_C,     KC_K,   P_AL,   S_S, \
-                   SFTZ,   ALT,     SPC,         ENT,     BSPC,    SFTZ                 \
+                   SFTZ,   ALT,     SPC,         ENT,     BSPC,    TAB                  \
 ),
 
 
@@ -461,9 +461,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 
 [EFT2] = LAYOUT(                                                                        \
-  ESC,    _____,  _____, _____, KC_Y,              KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
+  ESC,    _____,  _____, _____, XXXXX,             KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
   _____,  _____,  _____, KC_L,  KC_U,              KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
-  KC_Z,   _____,  _____, _____, _____,             KC_U,  _____,  PGUP,  PGDN,  _____,  \
+  KC_Z,   _____,  _____, _____, _____,             KC_U,  KC_Y,   PGUP,  PGDN,  _____,  \
                   _____, _____, _____,             _____, _____,  _____                 \
 ),
 
