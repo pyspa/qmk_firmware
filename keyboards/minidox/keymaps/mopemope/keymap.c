@@ -470,14 +470,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [R6S1] = LAYOUT(                                                                         \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             _____, _____,  _____, _____,  _____,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             _____, _____,  _____, _____,  _____,   \
-  KC_Z,   KC_X,   GCTL,  KC_6,  KC_5,             KC_Z,  _____,  _____, _____,  _____,   \
+  GALT,   KC_Z,   GCTL,  KC_U,  KC_G,             KC_Z,  KC_Y,   KC_T,  KC_B,  _____,   \
                   KC_V,  R6_C,  KC_SPC,           DQG,   ALTZ,   REC                     \
 ),
 
 [R6S2] = LAYOUT(                                                                         \
   ESC,    KC_F5,  KC_F6, KC_F7, KC_Y,             _____, _____,  _____, _____,  _____,   \
   _____,  KC_5,   KC_6,  KC_7,  KC_F,             _____, _____,  _____, _____,  _____,   \
-  KC_Z,   _____,  KC_U,  _____, _____,            _____, _____,  _____, _____,  _____,   \
+  KC_Z,   KC_B,   KC_U,  _____, _____,            _____, _____,  _____, _____,  _____,   \
                   _____, _____, _____,            DQG,   ALTZ,   REC                     \
 ),
 
