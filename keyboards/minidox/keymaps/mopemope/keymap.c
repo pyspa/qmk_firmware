@@ -155,6 +155,7 @@ extern keymap_config_t keymap_config;
 #define CG     LCTL(KC_G)
 #define CQ     LCTL(KC_Q)
 #define CT     LCTL(KC_T)
+#define CJ     LCTL(KC_J)
 #define CC     LCTL(KC_C)
 #define CS     LCTL(KC_S)
 #define CX     LCTL(KC_X)
@@ -266,7 +267,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |  ^   |   [  |  ]   |   <  |   >  |           |      |   ,  |      |      |     |
  * `----------------------------------'           `----------------------------------'
- *                  ,--------------------.    ,------,-------------.
+d *                  ,--------------------.    ,------,-------------.
  *                  |      |      |      |    |      |      |      |
  *                  `-------------|  SPC |    |      |------+------.
  *                                |      |    |      |
@@ -334,7 +335,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |      |      |      |    |      |      |      |
- *                  `-------------| SPC  |    | BSP  |------+------.
+ *                  `-------------| SPC  |    | C-j  |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
  */
@@ -342,7 +343,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   RESET,   _____,  _____, _____,  PREVW,         PREVTB,  MLT,     KUP,    MGT,    DEL,    \
   TAB,     _____,  _____, _____,  NEXTW,         NEXTTB,  KLEFT,   KDOWN,  KRIGHT, _____,  \
   _____,   _____,  _____, _____,  _____,         _____,   _____,   _____,  _____,  _____,  \
-                   _____, _____,  KC_SPC,        BSP,     _____,   _____                   \
+                   _____, _____,  KC_SPC,        CJ,      _____,   _____                   \
 ),
 
 /* COMBA
@@ -364,7 +365,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    CQ,     CG,    CMM,    CL,      APERC,         _____,  CXCF,   CXU,   CXCB,   _____,  \
    MD,     CXCS,  CT,     CMN,     MX,            _____,  _____,  CCZ,   CXO,    CAT,    \
    CZ,     CX,    CC,     _____,   _____,         _____,  _____,  CK,    _____,  _____,  \
-                  _____,  _____,   ZHTG,          CCX,    _____,  _____                  \
+                  _____,  _____,   ZHTG,          _____,    _____,  _____                  \
 ),
 
 /* COMBN
@@ -378,15 +379,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |      |      |      |    |      |      |      |
- *                  `-------------|      |    |      |------+------.
+ *                  `-------------|      |    | C-J  |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
  */
 [COMBN] =  LAYOUT( \
   _____,   CG,   _____,  CL,     _____,        _____,  MCOM,    CP,     MDOT,   MD,    \
-  TAB,     CS,   CT,     _____,  _____,        MSCLN,  CB,      CN,     CF,     CAT,   \
+  TAB,     CS,   CT,     _____,  _____,        MSCLN,  CLEFT,   CN,     CRIGHT, CAT,   \
   _____,   CX,   CRET,   CSPC,   _____,        MCOM,   MDOT,    _____,  _____,  CXU,   \
-                 _____,  _____,  _____,        _____,  _____,   _____                  \
+                 _____,  _____,  _____,        CJ,     _____,   _____                  \
 ),
 
 /* COMBE
@@ -430,7 +431,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _____,  GEFT,  GR6S,   GAPEX,  _____,        DQT,    EXLM,    PLUS,   ASTR,   PIPE,  \
   _____,  _____, _____,  _____,  _____,        TILD,   EQL,     COLN,   SCLN,   AT,    \
   _____,  _____, _____,  _____,  _____,        _____,  MINS,    COMM,   DOT,    SLSH,  \
-                 RSAD,   RSAI,   RTOG,         _____,  _____,   _____                  \
+                 RSAD,   RSAI,   RTOG,         CJ,     _____,   _____                  \
 ),
 
 /* [VAROLANT] =  LAYOUT( \ */
