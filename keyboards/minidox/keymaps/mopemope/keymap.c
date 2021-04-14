@@ -25,10 +25,14 @@ extern keymap_config_t keymap_config;
 #define _____ KC_TRNS
 #define XXXXX KC_NO
 
-#define WRKSP1 LALT(LCTL(KC_UP))
-#define WRKSP2 LALT(LCTL(KC_DOWN))
-#define UWRKSP LSFT(LALT(LCTL(KC_UP)))
-#define DWRKSP LSFT(LALT(LCTL(KC_DOWN)))
+// #define WRKSP1 LALT(LCTL(KC_UP))
+// #define WRKSP2 LALT(LCTL(KC_DOWN))
+#define WRKSP1 LGUI(KC_PGUP)
+#define WRKSP2 LGUI(KC_PGDN)
+// #define UWRKSP LSFT(LALT(LCTL(KC_UP)))
+// #define DWRKSP LSFT(LALT(LCTL(KC_DOWN)))
+#define UWRKSP LSFT(LGUI(KC_PGUP))
+#define DWRKSP LSFT(LGUI(KC_PGDN))
 #define PREVTB LSFT(LCTL(KC_UP))
 #define NEXTTB LSFT(LCTL(KC_DOWN))
 #define CAF2   LALT(LCTL(KC_F2))
@@ -155,6 +159,7 @@ extern keymap_config_t keymap_config;
 #define CG     LCTL(KC_G)
 #define CQ     LCTL(KC_Q)
 #define CT     LCTL(KC_T)
+#define CJ     LCTL(KC_J)
 #define CC     LCTL(KC_C)
 #define CS     LCTL(KC_S)
 #define CX     LCTL(KC_X)
@@ -266,7 +271,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |  ^   |   [  |  ]   |   <  |   >  |           |      |   ,  |      |      |     |
  * `----------------------------------'           `----------------------------------'
- *                  ,--------------------.    ,------,-------------.
+d *                  ,--------------------.    ,------,-------------.
  *                  |      |      |      |    |      |      |      |
  *                  `-------------|  SPC |    |      |------+------.
  *                                |      |    |      |
@@ -334,7 +339,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |      |      |      |    |      |      |      |
- *                  `-------------| SPC  |    | BSP  |------+------.
+ *                  `-------------| SPC  |    | C-j  |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
  */
@@ -342,7 +347,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   RESET,   _____,  _____, _____,  PREVW,         PREVTB,  MLT,     KUP,    MGT,    DEL,    \
   TAB,     _____,  _____, _____,  NEXTW,         NEXTTB,  KLEFT,   KDOWN,  KRIGHT, _____,  \
   _____,   _____,  _____, _____,  _____,         _____,   _____,   _____,  _____,  _____,  \
-                   _____, _____,  KC_SPC,        BSP,     _____,   _____                   \
+                   _____, _____,  KC_SPC,        CJ,      _____,   _____                   \
 ),
 
 /* COMBA
@@ -364,7 +369,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    CQ,     CG,    CMM,    CL,      APERC,         _____,  CXCF,   CXU,   CXCB,   _____,  \
    MD,     CXCS,  CT,     CMN,     MX,            _____,  _____,  CCZ,   CXO,    CAT,    \
    CZ,     CX,    CC,     _____,   _____,         _____,  _____,  CK,    _____,  _____,  \
-                  _____,  _____,   ZHTG,          CCX,    _____,  _____                  \
+                  _____,  _____,   ZHTG,          _____,    _____,  _____                  \
 ),
 
 /* COMBN
@@ -378,15 +383,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `----------------------------------'           `----------------------------------'
  *                  ,--------------------.    ,------,-------------.
  *                  |      |      |      |    |      |      |      |
- *                  `-------------|      |    |      |------+------.
+ *                  `-------------|      |    | C-J  |------+------.
  *                                |      |    |      |
  *                                `------'    `------'
  */
 [COMBN] =  LAYOUT( \
   _____,   CG,   _____,  CL,     _____,        _____,  MCOM,    CP,     MDOT,   MD,    \
-  TAB,     CS,   CT,     _____,  _____,        MSCLN,  CB,      CN,     CF,     CAT,   \
+  TAB,     CS,   CT,     _____,  _____,        MSCLN,  CLEFT,   CN,     CRIGHT, CAT,   \
   _____,   CX,   CRET,   CSPC,   _____,        MCOM,   MDOT,    _____,  _____,  CXU,   \
-                 _____,  _____,  _____,        _____,  _____,   _____                  \
+                 _____,  _____,  _____,        CJ,     _____,   _____                  \
 ),
 
 /* COMBE
@@ -430,7 +435,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   _____,  GEFT,  GR6S,   GAPEX,  _____,        DQT,    EXLM,    PLUS,   ASTR,   PIPE,  \
   _____,  _____, _____,  _____,  _____,        TILD,   EQL,     COLN,   SCLN,   AT,    \
   _____,  _____, _____,  _____,  _____,        _____,  MINS,    COMM,   DOT,    SLSH,  \
-                 RSAD,   RSAI,   RTOG,         _____,  _____,   _____                  \
+                 RSAD,   RSAI,   RTOG,         CJ,     _____,   _____                  \
 ),
 
 /* [VAROLANT] =  LAYOUT( \ */
@@ -454,23 +459,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* ), */
 
 [EFT1] = LAYOUT(                                                                        \
-  TAB,    KC_Q,   KC_W,  KC_E,  KC_R,              KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
-  KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,              KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
-  KC_CAPS,KC_X,   KC_C,  KC_V,  KC_G,              KC_O,  KC_T,   KC_B,  KC_N,  DEL,    \
-                  GCTL,  GALT,  EFTS,              DQG,   ALTZ,   REC                   \
+  TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
+  KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
+  KC_CAPS,KC_X,   KC_C,  KC_V,  KC_G,             KC_O,  KC_T,   KC_B,  KC_N,  DEL,    \
+                  GCTL,  GALT,  EFTS,             DQG,   ALTZ,   REC                   \
 ),
 
 [EFT2] = LAYOUT(                                                                        \
-  ESC,    _____,  _____, _____, XXXXX,             KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
-  _____,  _____,  _____, KC_L,  KC_U,              KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
-  KC_Z,   _____,  _____, _____, _____,             KC_U,  KC_Y,   PGUP,  PGDN,  _____,  \
-                  _____, _____, _____,             _____, _____,  _____                 \
+  ESC,    _____,  _____, _____, XXXXX,            KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
+  _____,  _____,  _____, KC_L,  KC_U,             KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
+  KC_Z,   _____,  _____, _____, _____,            KC_U,  KC_Y,   PGUP,  PGDN,  _____,  \
+                  _____, _____, _____,            _____, _____,  _____                 \
 ),
 
 [R6S1] = LAYOUT(                                                                         \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             _____, _____,  _____, _____,  _____,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             _____, _____,  _____, _____,  _____,   \
-  GALT,   KC_Z,   GCTL,  KC_U,  KC_G,             KC_Z,  KC_Y,   KC_T,  KC_B,  _____,   \
+  GALT,   KC_Z,   GCTL,  KC_U,  KC_G,             KC_Y,  KC_T,   KC_B,  _____,  _____, \
                   KC_V,  R6_C,  KC_SPC,           DQG,   ALTZ,   REC                     \
 ),
 
@@ -575,23 +580,23 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
       change = true;
       break;
     case GEFT:
-      rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+      rgblight_mode(RGBLIGHT_MODE_BREATHING);
       rgblight_sethsv(HSV_WHITE);
       change = true;
       break;
     case GR6S:
-      rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+      rgblight_mode(RGBLIGHT_MODE_BREATHING);
       rgblight_sethsv(HSV_GREEN);
       change = true;
       break;
     case GDV2:
-      rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+      rgblight_mode(RGBLIGHT_MODE_BREATHING);
       rgblight_sethsv(HSV_CYAN);
       change = true;
       break;
     case DQG:
       rgblight_sethsv(0xFF, 0xFF, 0xFF);
-      rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD+1);
+      rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD);
       change = true;
       break;
     default:
@@ -607,9 +612,9 @@ uint32_t layer_state_set_user(uint32_t state) {
     if (!change) {
       rgblight_sethsv(0xFF, 0xFF, 0xFF);
       if (main_mode) {
-        rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD + 1);
+        rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD);
       } else {
-        rgblight_mode(RGBLIGHT_MODE_TWINKLE+5);
+        rgblight_mode(RGBLIGHT_MODE_TWINKLE+3);
       }
       main_mode = !main_mode;
     }
@@ -664,7 +669,7 @@ uint32_t layer_state_set_user(uint32_t state) {
   case DIV2:
   case APEX1:
   case APEX2:
-    rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+    rgblight_mode(RGBLIGHT_MODE_BREATHING);
     rgblight_sethsv(HSV_CYAN);
     break;
   default:
