@@ -25,10 +25,14 @@ extern keymap_config_t keymap_config;
 #define _____ KC_TRNS
 #define XXXXX KC_NO
 
-#define WRKSP1 LALT(LCTL(KC_UP))
-#define WRKSP2 LALT(LCTL(KC_DOWN))
-#define UWRKSP LSFT(LALT(LCTL(KC_UP)))
-#define DWRKSP LSFT(LALT(LCTL(KC_DOWN)))
+// #define WRKSP1 LALT(LCTL(KC_UP))
+// #define WRKSP2 LALT(LCTL(KC_DOWN))
+#define WRKSP1 LGUI(KC_PGUP)
+#define WRKSP2 LGUI(KC_PGDN)
+// #define UWRKSP LSFT(LALT(LCTL(KC_UP)))
+// #define DWRKSP LSFT(LALT(LCTL(KC_DOWN)))
+#define UWRKSP LSFT(LGUI(KC_PGUP))
+#define DWRKSP LSFT(LGUI(KC_PGDN))
 #define PREVTB LSFT(LCTL(KC_UP))
 #define NEXTTB LSFT(LCTL(KC_DOWN))
 #define CAF2   LALT(LCTL(KC_F2))
