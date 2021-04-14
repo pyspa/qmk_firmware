@@ -41,10 +41,14 @@ extern keymap_config_t keymap_config;
 #define _____ KC_TRNS
 #define XXXXX KC_NO
 
-#define WRKSP1 LALT(LCTL(KC_UP))
-#define WRKSP2 LALT(LCTL(KC_DOWN))
-#define UWRKSP LSFT(LALT(LCTL(KC_UP)))
-#define DWRKSP LSFT(LALT(LCTL(KC_DOWN)))
+/* #define WRKSP1 LALT(LCTL(KC_UP)) */
+/* #define WRKSP2 LALT(LCTL(KC_DOWN)) */
+/* #define UWRKSP LSFT(LALT(LCTL(KC_UP))) */
+/* #define DWRKSP LSFT(LALT(LCTL(KC_DOWN))) */
+#define WRKSP1 LGUI(KC_PGUP)
+#define WRKSP2 LGUI(KC_PGDN)
+#define UWRKSP LSFT(LGUI(KC_PGUP))
+#define DWRKSP LSFT(LGUI(KC_PGDN))
 #define PREVTB LSFT(LCTL(KC_UP))
 #define NEXTTB LSFT(LCTL(KC_DOWN))
 #define CAF2   LALT(LCTL(KC_F2))
@@ -167,6 +171,7 @@ extern keymap_config_t keymap_config;
 #define CG     LCTL(KC_G)
 #define CQ     LCTL(KC_Q)
 #define CT     LCTL(KC_T)
+#define CJ     LCTL(KC_J)
 #define CC     LCTL(KC_C)
 #define CS     LCTL(KC_S)
 #define CX     LCTL(KC_X)
@@ -254,14 +259,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------|           |------+------+------+------+------|
  * |   Z  |   X  |   C  |   V  |      |           |      |   J  |   K  |   P  |   /  |
  * `-------------+------+------+------|           |------+------+------+------+------'
- *               |  SFT |  ALT | SPC  |           | ENT  | CTRL |  BSP |
+ *               |  SFT |  ALT | SPC  |           | ENT  | CTRL |  TAB |
  *               `--------------------'           `--------------------'
  */
 [QGMLWY] = LAYOUT( \
   KC_Q,    KC_G,   KC_M,  KC_L,  KC_W,             KC_Y,   KC_F,   KC_U,  KC_B,   BSP,     \
   D_M,     KC_S,   TC,    NC,    KC_R,             KC_I,   AC,     EC,    KC_O,   H_M,     \
   Z_S,     X_CT,   KC_C,  V_A,   GUI,              GUI,    J_C,    KC_K,  P_AL,   S_S,     \
-                   SFTZ,  ALT,   SPC,              ENT,    BSPC,   SFTZ                     \
+                   SFTZ,  ALT,   SPC,              ENT,    BSPC,   TAB                     \
 ),
 
 /* LOWER (Symbol)
@@ -324,11 +329,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* MISC_RIGHT
  *
  * ,----------------------------------.           ,----------------------------------.
- * | RESET|  DG1 |  DG2 |  DG3 | RTOG |           |      | PGDN |  UP  | PGUP | RESET|
+ * | RESET|      |      |      | PREVW|           |PREVTB| MLT  |  UP  | MGT  |  DEL |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |  TAB | RHUI | RHUD | RSAI | RSAD |           |      | LEFT | DOWN | RIGHT|      |
+ * |  TAB |      |      |      | NEXTW|           |NEXTTB| LEFT | DOWN | RIGHT|      |
  * |------+------+------+------+------|           |------+------+------+------+------|
- * |      |      | COPY | PASTE| RMOD |           |      |      |      |      |      |
+ * |      |      |      |      | RMOD |           |      |      |      |      |      |
  * `-------------+------+------+------|           |------+------+------+------+------'
  *               |      |      |      |           |      |      |      |
  *               `--------------------'           `--------------------'
@@ -373,9 +378,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [COMBN] = LAYOUT( \
   _____,   CG,     _____, CL,    _____,            _____, MCOM,   CP,    MDOT,  MD,     \
-  TAB,     CS,     CT,    _____, _____,            MSCLN, CB,     CN,    CF,    CAT,    \
+  TAB,     CS,     CT,    _____, _____,            MSCLN, CLEFT,  CN,    CRIGHT,CAT,    \
   _____,   CX,     CRET,  CSPC,  _____,            MCOM,  MDOT,   _____, _____, CXU,    \
-                   _____, _____, _____,            _____, _____,  _____                 \
+                   _____, _____, _____,            CJ,    _____,  _____                 \
 ),
 
 /* COMB_RIGHT2 (COMBE)
@@ -440,14 +445,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [R6S1] = LAYOUT( \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             _____, _____,  _____, _____,  _____,   \
   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             _____, _____,  _____, _____,  _____,   \
-  KC_Z,   KC_X,   GCTL,  KC_6,  KC_5,             _____, _____,  _____, _____,  _____,   \
+  KC_Z,   KC_X,   GCTL,  KC_U,  KC_G,             KC_Y,  KC_T,   KC_B,  _____,  _____,   \
                   KC_V,  R6_C,  KC_SPC,           DQG,   ALTZ,   REC                     \
 ),
 
 [R6S2] = LAYOUT( \
   ESC,    KC_F5,  KC_F6, KC_F7, KC_Y,             _____, _____,  _____, _____,  _____,   \
   _____,  KC_5,   KC_6,  KC_7,  KC_F,             _____, _____,  _____, _____,  _____,   \
-  _____,  _____,  KC_U,  _____, _____,            _____, _____,  _____, _____,  _____,   \
+  KC_Z,   KC_B ,  KC_U,  _____, _____,            _____, _____,  _____, _____,  _____, \
                   _____, _____, _____,            DQG,   _____,  _____                     \
 ),
 
