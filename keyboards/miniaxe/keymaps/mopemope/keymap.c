@@ -545,28 +545,28 @@ bool change;
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case GVAL:
-      rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+      rgblight_mode(RGBLIGHT_MODE_BREATHING);
       rgblight_sethsv(HSV_PURPLE);
       change = true;
       break;
     case GEFT:
-      rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+      rgblight_mode(RGBLIGHT_MODE_BREATHING);
       rgblight_sethsv(HSV_WHITE);
       change = true;
       break;
     case GR6S:
-      rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+      rgblight_mode(RGBLIGHT_MODE_BREATHING);
       rgblight_sethsv(HSV_GREEN);
       change = true;
       break;
     case GDV2:
-      rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+      rgblight_mode(RGBLIGHT_MODE_BREATHING);
       rgblight_sethsv(HSV_CYAN);
       change = true;
       break;
     case DQG:
       rgblight_sethsv(0xFF, 0xFF, 0xFF);
-      rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD+1);
+      rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD);
       change = true;
       break;
     default:
@@ -582,62 +582,62 @@ uint32_t layer_state_set_user(uint32_t state) {
     if (!change) {
       rgblight_sethsv(0xFF, 0xFF, 0xFF);
       if (main_mode) {
-        rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD + 1);
+        rgblight_mode(RGBLIGHT_MODE_RAINBOW_MOOD);
       } else {
-        rgblight_mode(RGBLIGHT_MODE_TWINKLE+5);
+        rgblight_mode(RGBLIGHT_MODE_TWINKLE);
       }
       main_mode = !main_mode;
     }
     break;
   case LOWER:
-    rgblight_mode(RGBLIGHT_MODE_KNIGHT+1);
+    rgblight_mode(RGBLIGHT_MODE_KNIGHT);
     rgblight_sethsv(HSV_BLUE);
     break;
   case RAISE:
-    rgblight_mode(RGBLIGHT_MODE_KNIGHT+1);
+    rgblight_mode(RGBLIGHT_MODE_KNIGHT);
     rgblight_sethsv(HSV_BLUE);
     break;
   case MISCL:
-    rgblight_mode(RGBLIGHT_MODE_SNAKE+2);
+    rgblight_mode(RGBLIGHT_MODE_SNAKE);
     rgblight_sethsv(HSV_YELLOW);
     break;
   case MISCR:
-    rgblight_mode(RGBLIGHT_MODE_SNAKE+2);
+    rgblight_mode(RGBLIGHT_MODE_SNAKE);
     rgblight_sethsv(HSV_YELLOW);
     break;
   case COMBA:
-    rgblight_mode(RGBLIGHT_MODE_TWINKLE+5);
+    rgblight_mode(RGBLIGHT_MODE_TWINKLE);
     rgblight_sethsv(HSV_GOLD);
     break;
   case COMBN:
-    rgblight_mode(RGBLIGHT_MODE_TWINKLE+5);
+    rgblight_mode(RGBLIGHT_MODE_TWINKLE);
     rgblight_sethsv(HSV_GOLD);
     break;
   case COMBE:
-    rgblight_mode(RGBLIGHT_MODE_BREATHING+2);
+    rgblight_mode(RGBLIGHT_MODE_BREATHING);
     rgblight_sethsv(HSV_AZURE);
     break;
   case COMBT:
-    rgblight_mode(RGBLIGHT_MODE_BREATHING+2);
+    rgblight_mode(RGBLIGHT_MODE_BREATHING);
     rgblight_sethsv(HSV_AZURE);
     break;
   case VAL1:
-    rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+    rgblight_mode(RGBLIGHT_MODE_BREATHING);
     rgblight_sethsv(HSV_PURPLE);
     break;
   case EFT1:
   case EFT2:
-    rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+    rgblight_mode(RGBLIGHT_MODE_BREATHING);
     rgblight_sethsv(HSV_WHITE);
     break;
   case R6S1:
   case R6S2:
-    rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+    rgblight_mode(RGBLIGHT_MODE_BREATHING);
     rgblight_sethsv(HSV_GREEN);
     break;
   case DIV1:
   case DIV2:
-    rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
+    rgblight_mode(RGBLIGHT_MODE_BREATHING);
     rgblight_sethsv(HSV_CYAN);
     break;
   default:
