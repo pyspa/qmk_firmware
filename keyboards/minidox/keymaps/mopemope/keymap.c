@@ -13,14 +13,16 @@ extern keymap_config_t keymap_config;
 #define COMBE   7
 #define COMBT   8
 #define VAL1    9
-#define EFT1   10
-#define EFT2   11
+#define CP1    10
+#define CP2    11
 #define R6S1   12
 #define R6S2   13
 #define APEX1  14
 #define APEX2  15
 #define DIV1   20
 #define DIV2   21
+#define EFT1   22
+#define EFT2   23
 
 #define _____ KC_TRNS
 #define XXXXX KC_NO
@@ -142,6 +144,7 @@ extern keymap_config_t keymap_config;
 
 #define DQG    DF(QGMLWY)
 #define GVAL   DF(VAL1)
+#define GCP    DF(CP1)
 #define GEFT   DF(EFT1)
 #define GR6S   DF(R6S1)
 #define GDV2   DF(DIV1)
@@ -216,6 +219,7 @@ extern keymap_config_t keymap_config;
 #define C_LT   LCTL(JP_LT)
 #define C_GT   LCTL(JP_GT)
 #define EFTS   LT(EFT2,KC_SPC)
+#define CP_C   LT(CP2,KC_C)
 #define R6_C   LT(R6S2,KC_C)
 #define DI_C   LT(DIV2,KC_LCTL)
 #define AP_I   LT(APEX2,KC_I)
@@ -432,7 +436,7 @@ d *                  ,--------------------.    ,------,-------------.
  *                                `------'    `------'
  */
 [COMBT] =  LAYOUT( \
-  _____,  GEFT,  GR6S,   GAPEX,  _____,        DQT,    EXLM,    PLUS,   ASTR,   PIPE,  \
+  _____,  GCP,   GR6S,   GAPEX,  _____,        DQT,    EXLM,    PLUS,   ASTR,   PIPE,  \
   _____,  _____, _____,  _____,  _____,        TILD,   EQL,     COLN,   SCLN,   AT,    \
   _____,  _____, _____,  _____,  _____,        _____,  MINS,    COMM,   DOT,    SLSH,  \
                  RSAD,   RSAI,   RTOG,         CJ,     _____,   _____                  \
@@ -445,32 +449,32 @@ d *                  ,--------------------.    ,------,-------------.
 /*                    KC_V,  KC_4,   KC_SPC,      DQG,    ALTZ,     DQG                     \ */
 /* ), */
 
-/* [CYBERPUNK2077] =  LAYOUT( \ */
-/*   TAB,     KC_Q,  KC_W,  KC_E,   KC_R,         XXXXX,  XXXXX,    KUP,    XXXXX,   XXXXX, \ */
-/*   KC_LSFT, KC_A,  KC_S,  KC_D,   KC_F,         XXXXX,  KLEFT,    KDOWN,  KRIGHT,  XXXXX, \ */
-/*   KC_Z,    KC_X,  GALT,  KC_V,   KC_T,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \ */
-/*                   KC_Z,  G5_C,   KC_SPC,       DQG,    ALTZ,     ESC                     \ */
-/* ), */
-/* [CYBERPUNK2077] =  LAYOUT( \ */
-/*   ESC,    KC_M,   KC_J,   KC_K,   _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \ */
-/*   _____,  KC_I,   KC_O,   KC_P,   _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \ */
-/*   KC_N,   KC_V,   _____,  _____,  _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \ */
-/*                   _____,  _____,  _____,        DQG,    ALTZ,     DQG                     \ */
-/* ), */
-
-[EFT1] = LAYOUT(                                                                        \
-  TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
-  KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
-  KC_CAPS,KC_X,   KC_C,  KC_V,  KC_G,             KC_O,  KC_T,   KC_B,  KC_N,  DEL,    \
-                  GCTL,  GALT,  EFTS,             DQG,   ALTZ,   REC                   \
+[CP1] =  LAYOUT( \
+  TAB,     KC_Q,  KC_W,   KC_E,   KC_R,         XXXXX,  XXXXX,    KUP,    XXXXX,   XXXXX, \
+  KC_LSFT, KC_A,  KC_S,   KC_D,   KC_F,         XXXXX,  KLEFT,    KDOWN,  KRIGHT,  XXXXX, \
+  KC_Z,    KC_X,  GALT,   KC_V,   KC_T,         XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+                  KC_Z,   CP_C,   KC_SPC,       DQG,    ALTZ,     ESC                     \
+),
+[CP2] =  LAYOUT( \
+  ESC,    KC_M,   KC_J,   KC_K,   _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  _____,  KC_I,   KC_O,   KC_P,   _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+  KC_N,   KC_V,   _____,  _____,  _____,        XXXXX,  XXXXX,    XXXXX,  XXXXX,   XXXXX, \
+                  _____,  _____,  _____,        DQG,    ALTZ,     DQG                     \
 ),
 
-[EFT2] = LAYOUT(                                                                        \
-  ESC,    _____,  _____, _____, XXXXX,            KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \
-  _____,  _____,  _____, KC_L,  KC_U,             KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \
-  KC_Z,   _____,  _____, _____, _____,            KC_U,  KC_Y,   PGUP,  PGDN,  _____,  \
-                  _____, _____, _____,            _____, _____,  _____                 \
-),
+/* [EFT1] = LAYOUT(                                                                        \ */
+/*   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \ */
+/*   KC_LSFT,KC_A,   KC_S,  KC_D,  KC_F,             KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \ */
+/*   KC_CAPS,KC_X,   KC_C,  KC_V,  KC_G,             KC_O,  KC_T,   KC_B,  KC_N,  DEL,    \ */
+/*                   GCTL,  GALT,  EFTS,             DQG,   ALTZ,   REC                   \ */
+/* ), */
+
+/* [EFT2] = LAYOUT(                                                                        \ */
+/*   ESC,    _____,  _____, _____, XXXXX,            KC_1,  KC_2,   KC_3,  KC_4,  KC_5,   \ */
+/*   _____,  _____,  _____, KC_L,  KC_U,             KC_6,  KC_7,   KC_0,  KC_9,  KC_0,   \ */
+/*   KC_Z,   _____,  _____, _____, _____,            KC_U,  KC_Y,   PGUP,  PGDN,  _____,  \ */
+/*                   _____, _____, _____,            _____, _____,  _____                 \ */
+/* ), */
 
 [R6S1] = LAYOUT(                                                                         \
   TAB,    KC_Q,   KC_W,  KC_E,  KC_R,             _____, _____,  _____, _____,  _____,   \
@@ -655,6 +659,8 @@ uint32_t layer_state_set_user(uint32_t state) {
     rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
     rgblight_sethsv(HSV_PURPLE);
     break;
+  case CP1:
+  case CP2:
   case EFT1:
   case EFT2:
     rgblight_mode(RGBLIGHT_MODE_BREATHING+1);
