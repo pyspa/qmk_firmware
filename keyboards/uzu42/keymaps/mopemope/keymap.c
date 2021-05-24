@@ -250,21 +250,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_Q,   KC_G,   KC_M,   KC_L,   KC_W,                       KC_Y,   KC_F,   KC_U,   KC_B,   BSP,    \
      D_M,    KC_S,   TC,     NC,     KC_R,                       KC_I,   AC,     EC,     KC_O,   H_M,    \
      Z_S,    X_CT,   KC_C,   V_A,    GUI,                        GUI,    J_C,    KC_K,   P_AL,   S_S,    \
-     XXXXXX, XXXXXX, XXXXXX, SFTZ,   ALT,   SPC,         ENT,    BSPC,   TAB,    XXXXXX, XXXXXX, XXXXXX  \
+     KC_LSFT,GCTL,   GALT,   SFTZ,   ALT,   SPC,         ENT,    BSPC,   TAB,    GALT,   GCTL,   KC_LSFT \
   ),
 
   [LOWER] = LAYOUT( \
      EXLM,   DQT,    HASH,   DLR,    PERC,                       AMPR,   QUOT,   GRV,    PIPE,   YEN,    \
      ESC,    LPRN,   RPRN,   LCBR,   RCBR,                       TILD,   DOT,    SLSH,   EQL,    AT,     \
      CIRC,   LBRC,   RBRC,   KC_LT,  KC_GT,                      ______, COMM,   ______, ______, ______, \
-     ______, ______, ______, ______, ______, KC_SPC,     ______, ______, ______, ______, ______, ______  \
+     CIRC,   ______, ______, ______, ______, KC_SPC,     ______, ______, ______, ______, ______, ______ \
   ),
 
   [RAISE] = LAYOUT( \
      KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                       KC_6,   KC_7,   KC_8,   KC_9,   KC_0,   \
      TAB,    KC_F1,  KC_F2,  KC_F3,  KC_F4,                      KC_F5,  KC_F12, KC_F7,  KC_F8,  AT,     \
      UNDS,   KC_F9,  KC_F10, KC_F11, ______,                     DOT,    KC_F6,  KC_LT,  KC_GT,  MINS,   \
-     ______, ______, ______, ______, ______, ______,     DOT,    ______, ______, ______, ______, ______  \
+     UNDS,   ______, ______, ______, ______, ______,     DOT,    ______, ______, ______, ______, MINS    \
   ),
 
   [MISCL] = LAYOUT( \
