@@ -285,7 +285,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      CQ,     CG,     CMM,    CL,     APERC,                      ______, CXCF,   CXU,    CXCB,   ______,  \
      MD,     CXCS,   CT,     CMN,    MX,                         ______, ______, CCZ,    CXO,    CAT,     \
      CZ,     CX,     CC,     ______, ______,                     ______, ______, CK,     ______, ______,  \
-     ______, ______, ______, ______, ______, ZHTG,       CCX,    ______, ______, ______, ______, ______   \
+     CZ,     ______, ______, ______, ______, ZHTG,       CCX,    ______, ______, ______, ______, ______   \
   ),
 
   [COMBN] = LAYOUT(                                                     \
