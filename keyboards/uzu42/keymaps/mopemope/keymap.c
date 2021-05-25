@@ -285,14 +285,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      CQ,     CG,     CMM,    CL,     APERC,                      ______, CXCF,   CXU,    CXCB,   ______,  \
      MD,     CXCS,   CT,     CMN,    MX,                         ______, ______, CCZ,    CXO,    CAT,     \
      CZ,     CX,     CC,     ______, ______,                     ______, ______, CK,     ______, ______,  \
-     CZ,     ______, ______, ______, ______, ZHTG,       CCX,    ______, ______, ______, ______, ______   \
+     CZ,     ______, ______, ______, CXU,    ZHTG,       CCX,    CXU,    ______, ______, ______, ______   \
   ),
 
   [COMBN] = LAYOUT(                                                     \
      ______, CG,     ______, CL,     ______,                     ______, MCOM,   CP,     MDOT,   MD,     \
      TAB,    CS,     CT,     ______, ______,                     MSCLN,  CLEFT,  CN,     CRIGHT, CAT,    \
      ______, CX,     CRET,   CSPC,   ______,                     MCOM,   MDOT,   ______, ______, CXU,    \
-     ______, ______, ______, ______, ______, ______,     CJ,     ______, ______, ______, ______, ______  \
+     ______, ______, ______, ______, CXU,    ______,     CJ,     CXU,    ______, ______, ______, ______  \
   ),
 
   [COMBE] = LAYOUT(                                                     \
@@ -433,35 +433,73 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
-//SSD1306 OLED update loop, make sure to enable OLED_DRIVER_ENABLE=yes in rules.mk
-#ifdef OLED_DRIVER_ENABLE
+bool change;
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+    case GVAL:
+      change = true;
+      break;
+    case GEFT:
+      change = true;
+      oled_write_P(PSTR("Escape from Tarkov\n"), false);
+      break;
+    case GR6S:
+      change = true;
+      oled_write_P(PSTR("Raibow Six Siege\n"), false);
+      break;
+    case GDV2:
+      change = true;
+      oled_write_P(PSTR("Division 2\n"), false);
+      break;
+    case GAPEX:
+      change = true;
+      oled_write_P(PSTR("Apex Legends\n"), false);
+      break;
+    case DQG:
+      change = false;
+      break;
+    }
+}
 
-#define L_BASE 0
-#define L_LOWER (1 << 1)
-#define L_RAISE (1 << 2)
-#define L_ADJUST (1 << 3)
-#define L_ADJUST_TRI (L_ADJUST | L_RAISE | L_LOWER)
 
-char layer_state_str[24];
+char layer_state_str[32];
 
 const char *read_layer_state(void) {
-  switch (layer_state)
+  uint8_t layer = biton32(layer_state);
+  switch (layer)
   {
-  case L_BASE:
-    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Default");
+  case QGMLWY:
+    if (!change) {
+      snprintf(layer_state_str, sizeof(layer_state_str), "Layer: QGMLWY\n");
+    }
     break;
-  case L_RAISE:
-    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Raise");
+  case LOWER:
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: LOWER\n");
     break;
-  case L_LOWER:
-    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Lower");
+  case RAISE:
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: RAISE\n");
     break;
-  case L_ADJUST:
-  case L_ADJUST_TRI:
-    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Adjust");
+  case MISCR:
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: MISCR\n");
+    break;
+  case MISCL:
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: MISCL\n");
+    break;
+  case COMBA:
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: COMBA\n");
+    break;
+  case COMBN:
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: COMBN\n");
+    break;
+  case COMBE:
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: COMBE\n");
+    break;
+  case COMBT:
+    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: COMBT\n");
     break;
   default:
-    snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%ld", layer_state);
+    //snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%d", layer);
+    break;
   }
 
   return layer_state_str;
@@ -476,66 +514,10 @@ const char *read_logo(void) {
   return logo;
 }
 
-char keylog_str[24] = {};
-char keylogs_str[21] = {};
-int keylogs_str_idx = 0;
-
-const char code_to_name[60] = {
-    ' ', ' ', ' ', ' ', 'a', 'b', 'c', 'd', 'e', 'f',
-    'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
-    'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
-    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
-    'R', 'E', 'B', 'T', ' ', ' ', ' ', ' ', ' ', ' ',
-    ' ', ';', '\'', ' ', ',', '.', '/', ' ', ' ', ' '};
-
-void set_keylog(uint16_t keycode, keyrecord_t *record) {
-  char name = ' ';
-  if (keycode < 60) {
-    name = code_to_name[keycode];
-  }
-
-  // update keylog
-  snprintf(keylog_str, sizeof(keylog_str), "%dx%d, k%2d : %c",
-           record->event.key.row, record->event.key.col,
-           keycode, name);
-
-  // update keylogs
-  if (keylogs_str_idx == sizeof(keylogs_str) - 1) {
-    keylogs_str_idx = 0;
-    for (int i = 0; i < sizeof(keylogs_str) - 1; i++) {
-      keylogs_str[i] = ' ';
-    }
-  }
-
-  keylogs_str[keylogs_str_idx] = name;
-  keylogs_str_idx++;
-}
-
-const char *read_keylog(void) {
-  return keylog_str;
-}
-
-const char *read_keylogs(void) {
-  return keylogs_str;
-}
-
-oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (!is_keyboard_master())
-    return OLED_ROTATION_180;  // flips the display 180 degrees if offhand
-  return rotation;
-}
-
 void oled_task_user(void) {
   if (is_keyboard_master()) {
-    // If you want to change the display of OLED, you need to change here
     oled_write_ln(read_layer_state(), false);
-    oled_write_ln(read_keylog(), false);
-    oled_write_ln(read_keylogs(), false);
-    //oled_write_ln(read_mode_icon(keymap_config.swap_lalt_lgui), false);
-    //oled_write_ln(read_host_led_state(), false);
-    //oled_write_ln(read_timelog(), false);
   } else {
-    oled_write(read_logo(), false);
+    oled_write_ln(read_logo(), false);
   }
 }
-#endif // OLED_DRIVER_ENABLE
