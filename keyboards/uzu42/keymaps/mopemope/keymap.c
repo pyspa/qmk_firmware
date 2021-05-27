@@ -278,21 +278,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      RESET,  ______, ______, ______, PREVW,                      PREVTB, MLT,    KUP,    MGT,    DEL,    \
      TAB,    ______, ______, ______, NEXTW,                      NEXTTB, KLEFT,  KDOWN,  KRIGHT, ______, \
      ______, ______, ______, ______, ______,                     ______, ______, ______, ______, ______, \
-     ______, ______, ______, ______, ______, KC_SPC,     BSP,    ______, ______, ______, ______, ______  \
+     ______, ______, ______, ______, CXU,    KC_SPC,     BSP,    CXU,    ______, ______, ______, ______ \
   ),
 
   [COMBA] = LAYOUT(                                                     \
      CQ,     CG,     CMM,    CL,     APERC,                      ______, CXCF,   CXU,    CXCB,   ______,  \
      MD,     CXCS,   CT,     CMN,    MX,                         ______, ______, CCZ,    CXO,    CAT,     \
      CZ,     CX,     CC,     ______, ______,                     ______, ______, CK,     ______, ______,  \
-     CZ,     ______, ______, ______, CXU,    ZHTG,       CCX,    CXU,    ______, ______, ______, ______   \
+     CZ,     ______, ______, ______, ______, ZHTG,       CCX,    ______, ______, ______, ______, ______   \
   ),
 
   [COMBN] = LAYOUT(                                                     \
      ______, CG,     ______, CL,     ______,                     ______, MCOM,   CP,     MDOT,   MD,     \
      TAB,    CS,     CT,     ______, ______,                     MSCLN,  CLEFT,  CN,     CRIGHT, CAT,    \
      ______, CX,     CRET,   CSPC,   ______,                     MCOM,   MDOT,   ______, ______, CXU,    \
-     ______, ______, ______, ______, CXU,    ______,     CJ,     CXU,    ______, ______, ______, ______  \
+     ______, ______, ______, ______, ______, ______,     CJ,     ______, ______, ______, ______, ______  \
   ),
 
   [COMBE] = LAYOUT(                                                     \
@@ -334,14 +334,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, ______, ______, ______, ______,  \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, ______, ______, ______, ______,  \
     GALT,   KC_Z,   GCTL,   KC_U,   KC_G,                        KC_Y,   KC_T,   KC_B,   ______, ______,  \
-    ______, ______, ______, KC_V,   R6_C,   KC_SPC,      DQG,    ALTZ,   REC,    ______, ______, ______   \
+    XXXXXX, XXXXXX, KC_B,   KC_V,   R6_C,   KC_SPC,      DQG,    ALTZ,   REC,    XXXXXX, XXXXXX, XXXXXX   \
   ),
 
   [R6S2] = LAYOUT( \
     ESC,    KC_F5,  KC_F6,  KC_F7,  KC_Y,                        ______, ______, ______, ______, ______,  \
     ______, KC_5,   KC_6,   KC_7,   KC_F,                        ______, ______, ______, ______, ______,  \
     KC_Z,   KC_B,   KC_U,   ______, ______,                      ______, ______, ______, ______, ______,  \
-    ______, ______, ______, ______, ______, ______,      DQG,    ______, ______, ______, ______, ______   \
+    XXXXXX, XXXXXX, XXXXXX, XXXXXX, ______, XXXXXX,      DQG,    XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX   \
   ),
 
   [APEX1] = LAYOUT(                                                                        \
