@@ -30,8 +30,9 @@ extern rgblight_config_t rgblight_config;
 #define EFT2   11
 #define R6S1   12
 #define R6S2   13
-#define APEX1  14
-#define APEX2  15
+#define KOC    14
+#define APEX1  16
+#define APEX2  17
 #define DIV1   20
 #define DIV2   21
 
@@ -155,6 +156,7 @@ extern rgblight_config_t rgblight_config;
 #define GR6S   DF(R6S1)
 #define GDV2   DF(DIV1)
 #define GAPEX  DF(APEX1)
+#define GKOC   DF(KOC)
 
 #define SELA   LCTL(KC_A)
 #define COPY   LCTL(KC_C)
@@ -271,7 +273,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      RESET,  ______, KUP,    ______, WRKSP1,                     UWRKSP, PGDN,   GU,     PGUP,   DEL,    \
      ______, KLEFT,  KDOWN,  KRIGHT, WRKSP2,                     DWRKSP, GL,     GD,     GR,     GH,     \
      ______, ______, ______, ______, ENT,                        MLT,    MGT,    SPSCR,  ______, ______, \
-     ______, ______, ______, COPY,   PASTE,  GUI,        ______, M_V,    ______, ______, ______, ______  \
+     ______, ______, ______, COPY,   PASTE,  GUI,        TAB,    M_V,    ______, ______, ______, ______  \
   ),
 
   [MISCR] = LAYOUT( \
@@ -303,7 +305,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [COMBT] = LAYOUT( \
-    GVAL,    GEFT,  GR6S,   GAPEX,  ______,                      DQT,    EXLM,   PLUS,   ASTR,   PIPE,   \
+    GVAL,    GEFT,  GR6S,   GKOC,   ______,                      DQT,    EXLM,   PLUS,   ASTR,   PIPE,   \
     ______, ______, ______, ______, ______,                      TILD,   EQL,    COLN,   SCLN,   AT,     \
     ______, ______, ______, ______, ______,                      ______, MINS,   COMM,   DOT,    SLSH,   \
     ______, ______, ______, RSAD,   RSAI,   RTOG,        ______, ______, ______, ______, ______, ______  \
@@ -342,6 +344,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ______, KC_5,   KC_6,   KC_7,   KC_F,                        ______, ______, ______, ______, ______,  \
     KC_Z,   KC_B,   KC_U,   ______, ______,                      ______, ______, ______, ______, ______,  \
     XXXXXX, XXXXXX, XXXXXX, XXXXXX, ______, XXXXXX,      DQG,    XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX   \
+  ),
+
+  [KOC] = LAYOUT( \
+    TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, ______, ______, ______, ______,  \
+    KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ESC,    ______, ______, ______, ______,  \
+    GCTL,   XXXXXX, XXXXXX, XXXXXX, XXXXXX,                      KC_X,   ______, ______, ______, ______,  \
+    XXXXXX, XXXXXX, XXXXXX, GALT,   GCTL,   KC_SPC,      DQG,    ALTZ,   REC,    XXXXXX, XXXXXX, XXXXXX   \
   ),
 
   [APEX1] = LAYOUT(                                                                        \
@@ -440,31 +449,49 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
       change = true;
       break;
     case GEFT:
-      change = true;
-      oled_write_P(PSTR("Escape from Tarkov\n"), false);
+      if (!change) {
+        change = true;
+        oled_write("Escape from Tarkov\n", false);
+      }
       break;
     case GR6S:
-      change = true;
-      oled_write_P(PSTR("Raibow Six Siege\n"), false);
+      if (!change) {
+        change = true;
+        oled_write("Raibow Six Siege\n", false);
+      }
+      break;
+    case GKOC:
+      if (!change) {
+        change = true;
+        oled_write("Knockout City\n", false);
+      }
       break;
     case GDV2:
-      change = true;
-      oled_write_P(PSTR("Division 2\n"), false);
+      if (!change) {
+        change = true;
+        oled_write("Division 2\n", false);
+      }
       break;
     case GAPEX:
-      change = true;
-      oled_write_P(PSTR("Apex Legends\n"), false);
+      if (!change) {
+        change = true;
+        oled_write("Apex Legends\n", false);
+      }
       break;
     case DQG:
+      oled_clear();
       change = false;
       break;
     }
 }
 
 
-char layer_state_str[32];
+char layer_state_str[64];
 
 const char *read_layer_state(void) {
+  if (change) {
+    return "";
+  }
   uint8_t layer = biton32(layer_state);
   switch (layer)
   {
@@ -498,6 +525,7 @@ const char *read_layer_state(void) {
     snprintf(layer_state_str, sizeof(layer_state_str), "Layer: COMBT\n");
     break;
   default:
+    oled_clear();
     //snprintf(layer_state_str, sizeof(layer_state_str), "Layer: Undef-%d", layer);
     break;
   }
@@ -518,6 +546,6 @@ void oled_task_user(void) {
   if (is_keyboard_master()) {
     oled_write_ln(read_layer_state(), false);
   } else {
-    oled_write_ln(read_logo(), false);
+    oled_write_ln(read_layer_state(), false);
   }
 }
