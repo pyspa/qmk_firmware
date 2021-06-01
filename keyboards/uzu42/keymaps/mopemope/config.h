@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define USE_SERIAL_PD2
 
 #define TAPPING_FORCE_HOLD
-#define TAPPING_TERM 200
+#define TAPPING_TERM 160
 
 // Use the lily version to get the uzu42 logo instead of the qmk logo
 #define OLED_FONT_H "keymaps/default/glcdfont_uzu42.c"

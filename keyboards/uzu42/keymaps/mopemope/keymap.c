@@ -25,7 +25,7 @@ extern rgblight_config_t rgblight_config;
 #define COMBN   6
 #define COMBE   7
 #define COMBT   8
-#define VAL1    9
+#define CYBER   9
 #define EFT1   10
 #define EFT2   11
 #define R6S1   12
@@ -35,6 +35,7 @@ extern rgblight_config_t rgblight_config;
 #define APEX2  17
 #define DIV1   20
 #define DIV2   21
+#define VAL1   22
 
 #define ______ KC_TRNS
 #define XXXXXX KC_NO
@@ -151,6 +152,7 @@ extern rgblight_config_t rgblight_config;
 #define ESC    KC_ESC
 
 #define DQG    DF(QGMLWY)
+#define GCYB   DF(CYBER)
 #define GVAL   DF(VAL1)
 #define GEFT   DF(EFT1)
 #define GR6S   DF(R6S1)
@@ -305,7 +307,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [COMBT] = LAYOUT( \
-    GVAL,    GEFT,  GR6S,   GKOC,   ______,                      DQT,    EXLM,   PLUS,   ASTR,   PIPE,   \
+    GCYB,   GEFT,   GR6S,   GKOC,   ______,                      DQT,    EXLM,   PLUS,   ASTR,   PIPE,   \
     ______, ______, ______, ______, ______,                      TILD,   EQL,    COLN,   SCLN,   AT,     \
     ______, ______, ______, ______, ______,                      ______, MINS,   COMM,   DOT,    SLSH,   \
     ______, ______, ______, RSAD,   RSAI,   RTOG,        ______, ______, ______, ______, ______, ______  \
@@ -330,6 +332,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ______, ______, ______, KC_L,   KC_U,                        KC_6,   KC_7,   KC_0,  KC_9,    KC_0,   \
     KC_Z,   ______, ______, ______, ______,                      KC_U,   KC_Y,   PGUP,  PGDN,    ______, \
     ______, ______, ______, ______, ______, ______,      ______, ______, ______, ______, ______, ______  \
+  ),
+
+  [CYBER] = LAYOUT( \
+    TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, KC_M,   KC_J,   KC_K,   ESC,    \
+    KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, KC_I,   KC_O,   KC_P,   ______, \
+    KC_Z,   KC_X,   GALT,   KC_V,   KC_T,                        ______, ______, ______, KC_V,   KC_N,   \
+    ______, ______, ______, KC_Z,   KC_C,   KC_SPC,      DQG,    ALTZ,   REC,    ______, ______, ______  \
   ),
 
   [R6S1] = LAYOUT( \
@@ -447,6 +456,12 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
     case GVAL:
       change = true;
+      break;
+    case GCYB:
+      if (!change) {
+        change = true;
+        oled_write("CYBER PUNK 2077\n", false);
+      }
       break;
     case GEFT:
       if (!change) {
