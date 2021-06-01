@@ -28,8 +28,7 @@ extern rgblight_config_t rgblight_config;
 #define CYBER   9
 #define EFT1   10
 #define EFT2   11
-#define R6S1   12
-#define R6S2   13
+#define R6S    12
 #define KOC    14
 #define APEX1  16
 #define APEX2  17
@@ -155,7 +154,7 @@ extern rgblight_config_t rgblight_config;
 #define GCYB   DF(CYBER)
 #define GVAL   DF(VAL1)
 #define GEFT   DF(EFT1)
-#define GR6S   DF(R6S1)
+#define GR6S   DF(R6S)
 #define GDV2   DF(DIV1)
 #define GAPEX  DF(APEX1)
 #define GKOC   DF(KOC)
@@ -341,19 +340,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ______, ______, ______, KC_Z,   KC_C,   KC_SPC,      DQG,    ALTZ,   REC,    ______, ______, ______  \
   ),
 
-  [R6S1] = LAYOUT( \
-    TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, ______, ______, ______, ______,  \
-    KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, ______, ______, ______, ______,  \
-    GALT,   KC_Z,   GCTL,   KC_U,   KC_G,                        KC_Y,   KC_T,   KC_B,   ______, ______,  \
-    XXXXXX, XXXXXX, KC_B,   KC_V,   R6_C,   KC_SPC,      DQG,    ALTZ,   REC,    XXXXXX, XXXXXX, XXXXXX   \
+  [R6S] = LAYOUT( \
+    TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, KC_F5,  KC_F6,  KC_F7,  ESC,     \
+    KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, KC_5,   KC_6,   KC_7,   ______,  \
+    GALT,   KC_Z,   GCTL,   KC_U,   KC_G,                        KC_Y,   KC_T,   KC_B,   KC_U,   ______,  \
+    KC_5,   KC_6,   KC_B,   KC_V,   KC_C,   KC_SPC,      KC_Z,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
   ),
 
-  [R6S2] = LAYOUT( \
-    ESC,    KC_F5,  KC_F6,  KC_F7,  KC_Y,                        ______, ______, ______, ______, ______,  \
-    ______, KC_5,   KC_6,   KC_7,   KC_F,                        ______, ______, ______, ______, ______,  \
-    KC_Z,   KC_B,   KC_U,   ______, ______,                      ______, ______, ______, ______, ______,  \
-    XXXXXX, XXXXXX, XXXXXX, XXXXXX, ______, XXXXXX,      DQG,    XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX   \
-  ),
+  /* [R6S2] = LAYOUT( \ */
+  /*   ESC,    KC_F5,  KC_F6,  KC_F7,  KC_Y,                        ______, ______, ______, ______, ______,  \ */
+  /*   ______, KC_5,   KC_6,   KC_7,   KC_F,                        ______, ______, ______, ______, ______,  \ */
+  /*   KC_Z,   KC_B,   KC_U,   ______, ______,                      ______, ______, ______, ______, ______,  \ */
+  /*   XXXXXX, XXXXXX, XXXXXX, XXXXXX, ______, XXXXXX,      DQG,    XXXXXX, XXXXXX, XXXXXX, XXXXXX, XXXXXX   \ */
+  /* ), */
 
   [KOC] = LAYOUT( \
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, ______, ______, ______, ______,  \
