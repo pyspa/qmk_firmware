@@ -26,8 +26,7 @@ extern rgblight_config_t rgblight_config;
 #define COMBE   7
 #define COMBT   8
 #define CYBER   9
-#define EFT1   10
-#define EFT2   11
+#define BL2    10
 #define R6S    12
 #define KOC    14
 #define APEX1  16
@@ -35,6 +34,8 @@ extern rgblight_config_t rgblight_config;
 #define DIV1   20
 #define DIV2   21
 #define VAL1   22
+#define EFT1   23
+#define EFT2   24
 
 #define ______ KC_TRNS
 #define XXXXXX KC_NO
@@ -151,6 +152,7 @@ extern rgblight_config_t rgblight_config;
 #define ESC    KC_ESC
 
 #define DQG    DF(QGMLWY)
+#define GBL2   DF(BL2)
 #define GCYB   DF(CYBER)
 #define GVAL   DF(VAL1)
 #define GEFT   DF(EFT1)
@@ -306,7 +308,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [COMBT] = LAYOUT( \
-    GCYB,   GEFT,   GR6S,   GKOC,   ______,                      DQT,    EXLM,   PLUS,   ASTR,   PIPE,   \
+    GCYB,   GBL2,   GR6S,   GKOC,   ______,                      DQT,    EXLM,   PLUS,   ASTR,   PIPE,   \
     ______, ______, ______, ______, ______,                      TILD,   EQL,    COLN,   SCLN,   AT,     \
     ______, ______, ______, ______, ______,                      ______, MINS,   COMM,   DOT,    SLSH,   \
     ______, ______, ______, RSAD,   RSAI,   RTOG,        ______, ______, ______, ______, ______, ______  \
@@ -337,7 +339,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, KC_M,   KC_J,   KC_K,   ESC,    \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, KC_I,   KC_O,   KC_P,   ______, \
     KC_Z,   KC_X,   GALT,   KC_V,   KC_T,                        ______, ______, ______, KC_V,   KC_N,   \
-    ______, ______, ______, KC_Z,   KC_C,   KC_SPC,      DQG,    ALTZ,   REC,    ______, ______, ______  \
+    ______, ______, ______, KC_Z,   KC_C,   KC_SPC,      DQG,    ALTZ,   REC,    ______, ______, DQG     \
+  ),
+
+  [BL2] = LAYOUT( \
+    TAB,    KC_G,   KC_W,   KC_E,   KC_R,                        ______, KC_F5,  KC_F6,  KC_F7,  ESC,     \
+    KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, KC_5,   KC_6,   KC_7,   ______,  \
+    KC_C,   KC_Q,   KC_M,   KC_U,   KC_G,                        KC_Y,   KC_T,   KC_B,   KC_U,   ______,  \
+    XXXXXX, XXXXXX, XXXXXX, KC_V,   KC_C,   KC_SPC,      KC_Z,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
   ),
 
   [R6S] = LAYOUT( \
@@ -358,7 +367,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, ______, ______, ______, ______,  \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ESC,    ______, ______, ______, ______,  \
     GCTL,   XXXXXX, XXXXXX, XXXXXX, XXXXXX,                      KC_X,   ______, ______, ______, ______,  \
-    XXXXXX, XXXXXX, XXXXXX, GALT,   GCTL,   KC_SPC,      DQG,    ALTZ,   REC,    XXXXXX, XXXXXX, XXXXXX   \
+    XXXXXX, XXXXXX, XXXXXX, GALT,   GCTL,   KC_SPC,      DQG,    ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
   ),
 
   [APEX1] = LAYOUT(                                                                        \
@@ -460,6 +469,12 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (!change) {
         change = true;
         oled_write("CYBER PUNK 2077\n", false);
+      }
+      break;
+    case GBL2:
+      if (!change) {
+        change = true;
+        oled_write("Borderlands 2\n", false);
       }
       break;
     case GEFT:
