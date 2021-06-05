@@ -27,8 +27,9 @@ extern rgblight_config_t rgblight_config;
 #define COMBT   8
 #define CYBER   9
 #define BL2    10
-#define R6S    12
-#define KOC    14
+#define R6S    11
+#define WZ     12
+#define KOC    13
 #define APEX1  16
 #define APEX2  17
 #define DIV1   20
@@ -157,6 +158,7 @@ extern rgblight_config_t rgblight_config;
 #define GVAL   DF(VAL1)
 #define GEFT   DF(EFT1)
 #define GR6S   DF(R6S)
+#define GWZ    DF(WZ)
 #define GDV2   DF(DIV1)
 #define GAPEX  DF(APEX1)
 #define GKOC   DF(KOC)
@@ -308,7 +310,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [COMBT] = LAYOUT( \
-    GCYB,   GBL2,   GR6S,   GKOC,   ______,                      DQT,    EXLM,   PLUS,   ASTR,   PIPE,   \
+    GWZ,    GBL2,   GR6S,   GKOC,   ______,                      DQT,    EXLM,   PLUS,   ASTR,   PIPE,   \
     ______, ______, ______, ______, ______,                      TILD,   EQL,    COLN,   SCLN,   AT,     \
     ______, ______, ______, ______, ______,                      ______, MINS,   COMM,   DOT,    SLSH,   \
     ______, ______, ______, RSAD,   RSAI,   RTOG,        ______, ______, ______, ______, ______, ______  \
@@ -354,6 +356,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, KC_5,   KC_6,   KC_7,   ______,  \
     GALT,   KC_Z,   GCTL,   KC_U,   KC_G,                        KC_Y,   KC_T,   KC_B,   KC_U,   ______,  \
     KC_5,   KC_6,   KC_B,   KC_V,   KC_C,   KC_SPC,      KC_Z,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
+  ),
+
+  [WZ] = LAYOUT( \
+    TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        KC_1,   KC_2,   KC_3,   KC_4,   ESC,     \
+    KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        KC_5,   KC_6,   KC_7,   KC_8,   KC_M,    \
+    KC_X,   GALT,   KC_Z,   KC_N,   KC_G,                        KLEFT,  KUP,    KDOWN,  KRIGHT, ______,  \
+    KC_4,   KC_5,   KC_B,   KC_V,   KC_C,   KC_SPC,      CENT,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
   ),
 
   /* [R6S2] = LAYOUT( \ */
@@ -481,6 +490,12 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (!change) {
         change = true;
         oled_write("Escape from Tarkov\n", false);
+      }
+      break;
+    case GWZ:
+      if (!change) {
+        change = true;
+        oled_write("CoD WARZONE\n", false);
       }
       break;
     case GR6S:
