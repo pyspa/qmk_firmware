@@ -339,14 +339,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, KC_M,   KC_J,   KC_K,   ESC,    \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, KC_I,   KC_O,   KC_P,   ______, \
     KC_Z,   KC_X,   GALT,   KC_V,   KC_T,                        ______, ______, ______, KC_V,   KC_N,   \
-    ______, ______, ______, KC_Z,   KC_C,   KC_SPC,      KC_Z,   ALTZ,   REC,    ______, ______, DQG     \
+    ______, ______, ______, KC_Z,   KC_C,   KC_SPC,      CENT,   ALTZ,   REC,    ______, ______, DQG     \
   ),
 
   [BL2] = LAYOUT( \
     TAB,    KC_G,   KC_W,   KC_E,   KC_R,                        ______, KC_F5,  KC_F6,  KC_F7,  ESC,     \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, KC_5,   KC_6,   KC_7,   ______,  \
     KC_C,   KC_Q,   KC_M,   KC_U,   KC_G,                        KC_Y,   KC_T,   KC_B,   KC_U,   ______,  \
-    XXXXXX, XXXXXX, XXXXXX, KC_V,   KC_C,   KC_SPC,      KC_Z,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
+    XXXXXX, XXXXXX, XXXXXX, KC_V,   KC_C,   KC_SPC,      CENT,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
   ),
 
   [R6S] = LAYOUT( \
@@ -367,7 +367,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, ______, ______, ______, ESC,     \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ESC,    ______, ______, ______, ______,  \
     GCTL,   XXXXXX, XXXXXX, XXXXXX, XXXXXX,                      KC_X,   ______, ______, ______, ______,  \
-    XXXXXX, XXXXXX, KC_G,   GALT,   GCTL,   KC_SPC,      DQG,    ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
+    XXXXXX, XXXXXX, KC_G,   GALT,   GCTL,   KC_SPC,      CENT,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
   ),
 
   [APEX1] = LAYOUT(                                                                        \
