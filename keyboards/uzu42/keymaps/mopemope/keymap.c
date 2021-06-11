@@ -284,7 +284,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [MISCR] = LAYOUT( \
      RESET,  ______, ______, ______, PREVW,                      PREVTB, MLT,    KUP,    MGT,    DEL,    \
      TAB,    ______, ______, ______, NEXTW,                      NEXTTB, KLEFT,  KDOWN,  KRIGHT, ______, \
-     ______, ______, ______, ______, ______,                     ______, ______, ______, ______, ______, \
+     PSCR,   ______, ______, ______, ______,                     ______, ______, ______, ______, ______, \
      ______, ______, ______, ______, CXU,    KC_SPC,     BSP,    CXU,    ______, ______, ______, ______ \
   ),
 
