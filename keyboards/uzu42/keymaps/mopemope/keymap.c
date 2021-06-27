@@ -357,7 +357,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, KC_F5,  KC_F6,  KC_F7,  ESC,     \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, KC_5,   KC_6,   KC_7,   ______,  \
     GALT,   KC_Z,   GCTL,   KC_U,   KC_G,                        KC_Y,   DQG,    KC_B,   KC_U,   ______,  \
-    KC_5,   KC_6,   KC_B,   KC_V,   KC_C,   KC_SPC,      GENT,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
+    KC_5,   KC_6,   KC_7,   KC_V,   KC_C,   KC_SPC,      GENT,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
   ),
 
   [WZ] = LAYOUT( \
@@ -391,8 +391,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [SN] = LAYOUT( \
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        KC_1,   KC_2,   KC_3,   KC_4,   KC_5,    \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, ESC,    ______, ______, ______,  \
-    XXXXXX, XXXXXX, XXXXXX, XXXXXX, ESC,                         ______, ______, ______, ______, ______,  \
-    XXXXXX, XXXXXX, XXXXXX, XXXXXX, KC_C,   KC_SPC,      GENT,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
+    KC_1,   KC_2,   KC_3,   KC_4,   KC_5,                        ______, ______, ______, ______, ______,  \
+    ESC,    XXXXXX, XXXXXX, XXXXXX, KC_C,   KC_SPC,      GENT,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
   ),
 
   /* [APEX2] = LAYOUT(                                                                        \ */
