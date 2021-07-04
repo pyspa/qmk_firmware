@@ -277,15 +277,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [MISCL] = LAYOUT( \
-     RESET,  ______, KUP,    ______, WRKSP1,                     UWRKSP, PGDN,   GU,     PGUP,   DEL,    \
-     ______, KLEFT,  KDOWN,  KRIGHT, WRKSP2,                     DWRKSP, GL,     GD,     GR,     GH,     \
+     RESET,  ______, CUP,    ______, WRKSP1,                     UWRKSP, PGDN,   GU,     PGUP,   DEL,    \
+     ______, KLEFT,  CDOWN,  KRIGHT, WRKSP2,                     DWRKSP, GL,     GD,     GR,     GH,     \
      ______, ______, ______, ______, ENT,                        MLT,    MGT,    SPSCR,  ______, ______, \
      ______, ______, ______, COPY,   PASTE,  GUI,        TAB,    M_V,    ______, ______, ______, ______  \
   ),
 
   [MISCR] = LAYOUT( \
-     RESET,  ______, ______, ______, PREVW,                      PREVTB, MLT,    KUP,    MGT,    DEL,    \
-     TAB,    ______, ______, ______, NEXTW,                      NEXTTB, KLEFT,  KDOWN,  KRIGHT, ______, \
+     RESET,  ______, CUP,    ______, PREVW,                      PREVTB, MLT,    KUP,    MGT,    DEL,    \
+     TAB,    ______, CDOWN,  ______, NEXTW,                      NEXTTB, KLEFT,  KDOWN,  KRIGHT, ______, \
      ______, ______, ______, ______, ______,                     ______, ______, ______, ______, ______, \
      ______, ______, ______, ______, CXU,    KC_SPC,     BSP,    CXU,    ______, ______, ______, ______ \
   ),
@@ -357,7 +357,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        ______, KC_F5,  KC_F6,  KC_F7,  ESC,     \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        ______, KC_5,   KC_6,   KC_7,   ______,  \
     GALT,   KC_Z,   GCTL,   KC_U,   KC_G,                        KC_Y,   DQG,    KC_B,   KC_U,   ______,  \
-    KC_5,   KC_6,   KC_7,   KC_V,   KC_C,   KC_SPC,      GENT,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
+    KC_5,   KC_6,   KC_B,   KC_V,   KC_C,   KC_SPC,      GENT,   ALTZ,   REC,    XXXXXX, XXXXXX, DQG      \
   ),
 
   [WZ] = LAYOUT( \
