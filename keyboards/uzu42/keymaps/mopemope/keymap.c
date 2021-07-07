@@ -32,11 +32,10 @@ extern rgblight_config_t rgblight_config;
 #define KOC    13
 #define APEX   14
 #define SN     15
+#define EFT    16
 #define DIV1   20
 #define DIV2   21
 #define VAL1   22
-#define EFT1   23
-#define EFT2   24
 
 #define ______ KC_TRNS
 #define XXXXXX KC_NO
@@ -157,7 +156,7 @@ extern rgblight_config_t rgblight_config;
 #define GBL2   DF(BL2)
 #define GCYB   DF(CYBER)
 #define GVAL   DF(VAL1)
-#define GEFT   DF(EFT1)
+#define GEFT   DF(EFT)
 #define GR6S   DF(R6S)
 #define GWZ    DF(WZ)
 #define GDV2   DF(DIV1)
@@ -313,7 +312,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [COMBT] = LAYOUT( \
     GWZ,    GBL2,   GR6S,   GKOC,   GAPEX,                       DQT,    EXLM,   PLUS,   ASTR,   PIPE,   \
-    GSN,    ______, ______, ______, ______,                      TILD,   EQL,    COLN,   SCLN,   AT,     \
+    GSN,    GEFT,   ______, ______, ______,                      TILD,   EQL,    COLN,   SCLN,   AT,     \
     ______, ______, ______, ______, ______,                      ______, MINS,   COMM,   DOT,    SLSH,   \
     ______, ______, ______, ______, ______, PSCR,        ______, ______, ______, ______, ______, ______  \
   ),
@@ -325,18 +324,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ______, ______, ______, ______, KC_C,   KC_SPC,      DQG,    ALTZ,   REC,    ______, ______, ______   \
   ),
 
-  [EFT1] = LAYOUT( \
+  [EFT] = LAYOUT( \
     TAB,    KC_Q,   KC_W,   KC_E,   KC_R,                        KC_1,   KC_2,   KC_3,   KC_4,   KC_5,   \
     KC_LSFT,KC_A,   KC_S,   KC_D,   KC_F,                        KC_6,   KC_7,   KC_0,   KC_9,   KC_0,   \
     KC_CAPS,KC_X,   KC_C,   KC_V,   KC_G,                        KC_O,   KC_T,   KC_B,   KC_N,   DEL,    \
-    ______, ______, ______, GCTL,   GALT,   EFTS,        DQG,    ALTZ,   REC,    ______, ______, ______ \
-  ),
-
-  [EFT2] = LAYOUT( \
-    ESC,    ______, ______, ______, XXXXXX,                      KC_1,   KC_2,   KC_3,  KC_4,    KC_5,   \
-    ______, ______, ______, KC_L,   KC_U,                        KC_6,   KC_7,   KC_0,  KC_9,    KC_0,   \
-    KC_Z,   ______, ______, ______, ______,                      KC_U,   KC_Y,   PGUP,  PGDN,    ______, \
-    ______, ______, ______, ______, ______, ______,      ______, ______, ______, ______, ______, ______  \
+    KC_Z,   KC_L,   KC_U,   GCTL,   GALT,   KC_SPC,      DQG,    ALTZ,   REC,    KC_U,   KC_Y,   ESC     \
   ),
 
   [CYBER] = LAYOUT( \
